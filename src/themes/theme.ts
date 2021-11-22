@@ -7,7 +7,7 @@ const defaultTheme = {
         primary2: '#4e9ae6',
         secondary1: '#ff7723',
         secondary2: '#e6884e',
-        gray: '#333',
+        gray: '#222',
         gray2: '#ddd'
     }
 }

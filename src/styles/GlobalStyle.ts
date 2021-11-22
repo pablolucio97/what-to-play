@@ -15,5 +15,13 @@ export const GlobalStyles = createGlobalStyle`
 
     a{
         text-decoration-line: none;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    button{
+        outline: none;
+        border: none;
+        cursor: pointer;
     }
 `;

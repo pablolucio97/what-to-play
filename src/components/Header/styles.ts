@@ -11,7 +11,10 @@ export const Container = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.colors.secondary1};
   box-shadow: 0 0 8px #000;
   @media (max-width: 720px) {
-    height: 40px;
+    height: 72px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   `;
 
@@ -28,7 +31,7 @@ export const TitleContainer = styled.div`
     align-items: center;
     margin-left: 0;
     margin-top: 0.4rem;
-    padding: 1rem;
+    margin-bottom: -2rem;
   }
 `;
 
@@ -39,7 +42,7 @@ export const Title = styled.h1`
 
   @media (max-width: 720px) {
     font-size: 1rem;
-    margin-top: -0.2rem;
+    margin-top: .16rem;
     margin-left: 0;
   }
 `;
