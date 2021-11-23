@@ -17,6 +17,7 @@ export const LoginContainer = styled.div`
   height: 400px;
   margin: 8rem auto 1rem;
   background: ${props => props.theme.colors.gray};
+  box-shadow: rgba(10, 10, 10, 0.1) 0px 8px 16px -2px, rgba(10, 10, 10, 0.02) 0px 0px 0px 1px;
 
   h2{
     font-size: 1.8rem;

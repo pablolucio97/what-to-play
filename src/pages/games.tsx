@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
             short_description: game.short_description,
             freetogame_profile_url: game.freetogame_profile_url,
         }
-    })
+    }).slice(0,4)
 
     return {
         props: {

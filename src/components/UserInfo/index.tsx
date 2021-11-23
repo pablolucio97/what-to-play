@@ -1,7 +1,7 @@
 import { UserContainer, Avatar, UserName, UserInfoContainer } from './styles'
 import { UserProps } from '../../types/userTypes'
 
-export const UserInfo = ({ avatar, name, id, children }: UserProps) => {
+export default function UserInfo({ avatar, name, id, children }: UserProps){
 
     return (
         <UserContainer >

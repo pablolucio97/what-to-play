@@ -4,15 +4,12 @@ export const UserContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: ${props => props.theme.colors.gray};
-    border-bottom: 2px solid  ${props => props.theme.colors.secondary1};
     width: 1160px;
     height: 48px;
     padding: .4rem;
     margin: 0 auto;
     border-radius: 2px;
-    color: #fff;
-
+    
     @media(max-width: 1240px){
         width: 92%;
     }
@@ -38,10 +35,10 @@ export const Avatar = styled.img`
     height: 40px;
     border-radius: 100%;
     margin: 1rem;
+    border: 2px solid ${props => props.theme.colors.gray2};
 `
 
 export const UserName = styled.p`
     font-size: 1.2rem;
-    color: #fff;
     font-weight: 400;
 `

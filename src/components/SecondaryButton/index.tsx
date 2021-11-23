@@ -2,8 +2,9 @@ import { Button } from './styles'
 
 type ButtonProps = {
     label: string
+    action: () => void
 }
 
-export default function Secondary({ label }: ButtonProps) {
-    return <Button>{label}</Button>
+export default function Secondary({ label, action }: ButtonProps) {
+    return <Button onClick={action}>{label}</Button>
 }
