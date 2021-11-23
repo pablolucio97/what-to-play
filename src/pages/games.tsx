@@ -12,15 +12,13 @@ export default function Games({ games }) {
         <Container>
             <Header />
             <main>
-                {games.map(game => {
+                {games.map(game => (
                     <GameCard
                         id={game.id}
-                        short_description={game.short_description}
-                        title={game.title}
                         freetogame_profile_url={game.freetogame_profile_url}
                         thumbnail={game.thumbnail}
                     />
-                })}
+                ))}
             </main>
             <Footer />
         </Container>
@@ -35,10 +33,9 @@ export const getStaticProps: GetStaticProps = async () => {
             id: game.id,
             thumbnail: game.thumbnail,
             title: game.title,
-            short_description: game.short_description,
             freetogame_profile_url: game.freetogame_profile_url,
         }
-    }).slice(0,4)
+    })
 
     return {
         props: {

@@ -7,9 +7,9 @@ export const Container = styled.div`
     width: 100%;
     
     main{
-        height: 900px;
-        margin-top: 8rem;
-        
-        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 6rem auto 2rem;
+        width: 1200px;
     }
 `

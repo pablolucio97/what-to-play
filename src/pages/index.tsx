@@ -40,6 +40,7 @@ export default function Home({ releasedGames }) {
           <h1>+ de 360 jogos disponíveis para jogar gratuitamente</h1>
           <PrimaryButton
             label="Explorar todos os jogos"
+            action={() => router.push('/games')}
           />
         </ButtonsContainer>
       </Main>

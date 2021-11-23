@@ -14,12 +14,12 @@ export type gameCardTypes = {
 
 
 export type gameTypes = {
-  id: number;
-  title: string;
-  thumbnail: string;
-  short_description: string;
-  game_url: string;
-  publisher: string;
-  freetogame_profile_url: string;
+  id?: number;
+  title?: string;
+  thumbnail?: string;
+  short_description?: string;
+  game_url?: string;
+  publisher?: string;
+  freetogame_profile_url?: string;
 }
 

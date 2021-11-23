@@ -1,25 +1,33 @@
-import { Button, Container, InfoContainer, Img, GameTitle } from './styles'
-import {gameCardTypes} from '../../types/gameCardTypes'
+import {
+    PlayButton,
+    FavoriteButton,
+    Container,
+    Img,
+    ButtonsContainer
+} from './styles'
+import { gameCardTypes } from '../../types/gameCardTypes'
 
 
 
 const Index = ({
-    id,
     freetogame_profile_url,
-    title,
+    id,
     short_description,
     thumbnail
-} : gameCardTypes) => {
+}: gameCardTypes) => {
     return (
         <Container key={id}>
-            <Img src={thumbnail}/>
-            <InfoContainer>
-                <GameTitle>{title}</GameTitle>
-            <Button onClick={() => {window.open(freetogame_profile_url)}}>
-                Play
-                <p>{short_description}</p>
-            </Button>
-            </InfoContainer>
+            <Img src={thumbnail} />
+            <ButtonsContainer>
+                <PlayButton onClick={() => { window.open(freetogame_profile_url) }}>
+                    Play
+                    <p>{short_description}</p>
+                </PlayButton>
+                <FavoriteButton onClick={() => { }}>
+                    Favorite
+                    <p>{short_description}</p>
+                </FavoriteButton>
+            </ButtonsContainer>
         </Container>
     )
 }
