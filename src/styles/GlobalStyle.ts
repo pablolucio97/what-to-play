@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration-line: none;
         text-decoration: none;
         color: #fff;
+        cursor: pointer;
     }
 
     button{

@@ -4,9 +4,9 @@ import {gameCardTypes} from '../../types/gameCardTypes'
 
 
 const Index = ({
+    id,
     freetogame_profile_url,
     title,
-    id,
     short_description,
     thumbnail
 } : gameCardTypes) => {

@@ -1,20 +1,24 @@
 import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GameSection from '../components/GameSection'
 import PrimaryButton from '../components/PrimaryButton'
 import { api } from '../services/api'
 import { gameTypes } from '../types/gameCardTypes'
-import { Container, Main, Banner, ButtonsContainer } from '../styles/index'
+import { Container, Main, Banner, ButtonsContainer } from '../styles/pages/index'
 
 
 export default function Home({ releasedGames }) {
+
+  const router = useRouter()
+
   return (
     <Container>
       <Header />
       <Banner>
         <h1>Centenas de jogos grátis</h1>
-        <span>Faça <a href="/login"> login </a>e comece a jogar</span>
+        <span>Faça <a onClick={() => router.push('/login')}> login </a>e comece a jogar</span>
       </Banner>
       <Main>
         <GameSection
