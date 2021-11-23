@@ -28,7 +28,7 @@ export const Banner = styled.div`
   background-image: url("../../banner.jpg");
   width: 1168px;
   height: 400px;
-  margin: 2rem auto 4rem;
+  margin: 6rem auto 4rem;
   background-size: cover;
   position: relative;
 

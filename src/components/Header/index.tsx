@@ -1,40 +1,22 @@
-import { ChangeEvent } from 'react'
-import { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import { useRouter } from 'next/router'
 import { BiJoystickButton } from 'react-icons/bi'
-import Switch from 'react-switch'
 import {
     TitleContainer,
     Container,
-    Title,
-    MenuContainer,
+    Title
 } from './styles'
 
 
+const Index = () => {
 
-
-type HeaderProps = {
-    search?: (e: ChangeEvent<HTMLInputElement>) => void;
-    toggleTheme?(): void;
-}
-
-
-const Index = ({ search, toggleTheme }: HeaderProps) => {
-
-
-
-   // const { title, colors } = useContext(ThemeContext)
-
+    const router = useRouter()
 
     return (
-        <Container>
+        <Container onClick={() => router.push('/')}>
             <TitleContainer>
                 <BiJoystickButton size={32} color='#fff' />
                 <Title>WhatToPlay</Title>
             </TitleContainer>
-            <MenuContainer>
-        
-            </MenuContainer>
         </Container>
     )
 }

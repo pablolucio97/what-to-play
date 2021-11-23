@@ -1,31 +1,34 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 999;
   width: 100%;
   height: 32px;
+  margin-bottom: 4rem;
   background: ${(props) => props.theme.colors.gray};
   padding: 1rem 0.4rem;
   border-bottom: 1px solid ${(props) => props.theme.colors.secondary1};
   box-shadow: 0 0 8px #000;
+
   @media (max-width: 720px) {
     height: 72px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  `;
+`;
 
 export const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 1rem;
+  cursor: pointer;
 
- 
-  
   @media (max-width: 720px) {
     flex-direction: column;
     align-items: center;
@@ -42,7 +45,7 @@ export const Title = styled.h1`
 
   @media (max-width: 720px) {
     font-size: 1rem;
-    margin-top: .16rem;
+    margin-top: 0.16rem;
     margin-left: 0;
   }
 `;
@@ -110,4 +113,3 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
-
