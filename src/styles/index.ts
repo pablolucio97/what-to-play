@@ -5,9 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  img {
-    align-self: center;
-  }
 `;
 
 export const Main = styled.div`
@@ -31,7 +28,7 @@ export const Banner = styled.div`
   background-image: url("../../banner.jpg");
   width: 1168px;
   height: 400px;
-  margin: 1rem auto 4rem;
+  margin: 2rem auto 4rem;
   background-size: cover;
   position: relative;
 
@@ -57,6 +54,7 @@ export const ButtonsContainer = styled.button`
   align-items: center;
   margin: 1rem auto;
   background: transparent;
+  cursor: auto;
   h1{
     font-size: 2.4rem;
     width: 880px;

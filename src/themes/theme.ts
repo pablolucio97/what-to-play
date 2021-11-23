@@ -8,7 +8,8 @@ const defaultTheme = {
         secondary1: '#ff7723',
         secondary2: '#e6884e',
         gray: '#222',
-        gray2: '#ddd'
+        gray2: '#ddd',
+        gray3: '#333'
     }
 }
 

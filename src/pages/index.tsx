@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import PrimaryButton from '../components/PrimaryButton'
 import ImageGameCard from '../components/ImageGameCard'
 import { api } from '../services/api'
@@ -47,12 +48,13 @@ export default function Home({ releasedGames }) {
           }
         </div>
         <ButtonsContainer>
-          <h1>+ de 500 jogos disponíveis para jogar gratuitamente</h1>
+          <h1>+ de 360 jogos disponíveis para jogar gratuitamente</h1>
           <PrimaryButton
             label="Explorar todos os jogos"
           />
         </ButtonsContainer>
       </Main>
+      <Footer />
     </Container>
   )
 }
