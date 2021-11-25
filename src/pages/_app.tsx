@@ -1,15 +1,25 @@
 
+import React from 'react';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../styles/GlobalStyle'
-import  defaultTheme from '../themes/theme'
+import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import defaultTheme from '../themes/theme'
+
 
 
 function MyApp({ Component, pageProps }) {
+
+  const queryClient = new QueryClient()
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient} >
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <ReactQueryDevtools/>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 

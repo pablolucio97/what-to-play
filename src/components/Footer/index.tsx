@@ -1,3 +1,4 @@
+import React from 'react';
 import { BiJoystickButton } from 'react-icons/bi'
 import {
     Footer as FooterComponent,

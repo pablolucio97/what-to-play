@@ -24,6 +24,15 @@ export const LoginContainer = styled.div`
     color: #fff;
     margin-bottom: 1.24rem;
   }
+  
+  span{
+    color: ${props => props.theme.colors.gray2};
+    text-align: justify;
+    width: 320px;
+    margin: 1rem auto 2rem;
+    font-size: .80rem;
+    font-weight: 300;
+  }
 `;
 
 export const Img = styled.img`

@@ -1,3 +1,4 @@
+import React from 'react'
 import {Container, Img} from './styles'
 import {gameCardTypes} from '../../types/gameCardTypes'
 

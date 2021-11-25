@@ -1,24 +1,50 @@
+import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GameCard from '../components/GameCard'
-import { Container } from '../styles/pages/games'
-import { api } from '../services/api'
-import { gameTypes } from '../types/gameCardTypes'
+import { Container, LoadingContainer } from '../styles/pages/games'
 import { GetStaticProps } from 'next'
+import { getGames, useGamesList } from '../hooks/useGamesList'
+import RingLoaderComponent from '../components/RingLoader'
+import { useState } from 'react'
 
 
 export default function Games({ games }) {
+
+
+
+    const { data, isFetching } = useGamesList({ initialData: games })
+
+    const [loading, setLoading] = useState(true)
+
     return (
         <Container>
             <Header />
             <main>
-                {games.map(game => (
-                    <GameCard
-                        id={game.id}
-                        freetogame_profile_url={game.freetogame_profile_url}
-                        thumbnail={game.thumbnail}
-                    />
-                ))}
+                {
+                    isFetching ?
+                        <LoadingContainer>
+                            <img
+                                src='/loading-char.png'
+                                width={340}
+                                height={400}
+                            />
+                            <span>Carregando...</span>
+                            <RingLoaderComponent
+                                isLoading={loading}
+                            />
+                        </LoadingContainer>
+                        :
+                        //@ts-ignore 
+                        data.map(game => (
+                            <GameCard
+                                key={game.id}
+                                id={game.id}
+                                freetogame_profile_url={game.freetogame_profile_url}
+                                thumbnail={game.thumbnail}
+                            />
+                        ))
+                }
             </main>
             <Footer />
         </Container>
@@ -27,15 +53,7 @@ export default function Games({ games }) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const data = await api.get<gameTypes[]>('/games')
-    const games = data.data.map(game => {
-        return {
-            id: game.id,
-            thumbnail: game.thumbnail,
-            title: game.title,
-            freetogame_profile_url: game.freetogame_profile_url,
-        }
-    })
+    const games = await getGames()
 
     return {
         props: {

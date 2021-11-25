@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     PlayButton,
     FavoriteButton,
@@ -6,8 +7,6 @@ import {
     ButtonsContainer
 } from './styles'
 import { gameCardTypes } from '../../types/gameCardTypes'
-
-
 
 const Index = ({
     freetogame_profile_url,

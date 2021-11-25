@@ -1,3 +1,4 @@
+import React from 'react'
 import { GetServerSideProps } from 'next'
 import ImageGameCard from '../ImageGameCard'
 import { api } from '../../services/api'

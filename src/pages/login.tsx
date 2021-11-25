@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {
@@ -7,8 +8,6 @@ import {
     GoogleLoginButton,
     GitHubLoginButton
 } from '../styles/pages/login'
-import Image from 'next/image'
-
 
 export default function Login() {
     return (
@@ -17,6 +16,7 @@ export default function Login() {
             <main>
                 <LoginContainer>
                     <h2>Faça seu login e comece a aventura</h2>
+                    <span>Fazendo login você pode adicionar seu jogos aos favoritos, acompahar os jogos que você mais joga e muito mais.</span>
                     <GoogleLoginButton
                     >
                         Fazer login com o Google
