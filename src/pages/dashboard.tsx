@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import UserInfo from '../components/UserInfo';
@@ -6,7 +7,6 @@ import SecondaryButton from '../components/SecondaryButton'
 import { Container, FavoritesContainer } from '../styles/pages/dashboard'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
-import { useState } from 'react';
 
 
 export default function DashBoard() {

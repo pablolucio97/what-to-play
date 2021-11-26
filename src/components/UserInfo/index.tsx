@@ -1,3 +1,4 @@
+import React from 'react'
 import { UserContainer, Avatar, UserName, UserInfoContainer } from './styles'
 import { UserProps } from '../../types/userTypes'
 
