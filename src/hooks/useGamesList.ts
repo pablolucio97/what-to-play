@@ -10,7 +10,8 @@ export const getGames = async () => {
         return {
             id: game.id,
             thumbnail: game.thumbnail,
-            freetogame_profile_url: game.freetogame_profile_url
+            freetogame_profile_url: game.freetogame_profile_url,
+            title: game.title,
         }
     })
 

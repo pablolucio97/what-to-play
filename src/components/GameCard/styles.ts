@@ -16,15 +16,6 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 1240px) {
-    width: 640px;
-    height: 240px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 1rem;
-  }
 
   @media (max-width: 720px) {
     width: 278px;

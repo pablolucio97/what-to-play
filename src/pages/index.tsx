@@ -1,4 +1,8 @@
 import React from 'react'
+import "regenerator-runtime/runtime";
+import "core-js/stable";
+import "babel-polyfill"
+import "core-js/stable"
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Header from '../components/Header'

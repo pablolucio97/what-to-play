@@ -19,7 +19,7 @@ export default function GameSection({
     releasedGames,
     initialQueryIndex,
     finalQueryIndex
-} : GameSectionProps) {
+}: GameSectionProps) {
     return (
         <div>
             {
@@ -38,14 +38,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     const data = await api.get<GameProps[]>('/games')
     const releasedGames = data.data.map(game => {
-        return{
+        return {
             id: game.id,
             thumbnail: game.thumbnail
         }
     })
 
-    return{
-        props:{
+    return {
+        props: {
             releasedGames
         }
     }
