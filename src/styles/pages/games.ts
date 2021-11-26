@@ -13,11 +13,18 @@ export const Container = styled.div`
     width: 1200px;
     min-height: 72vh;
 
-    div {
-      display: flex;
-      flex-wrap: wrap;
+
+  }
+
+  span{
+    margin-left: 1rem;
+    a{
+      color: ${props => props.theme.colors.primary2};
+      margin: 0 .24rem;
+      font-weight:  600;
     }
   }
+
 `;
 
 export const LoadingContainer = styled.div`
@@ -43,4 +50,11 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
+
+export const UserContainer = styled.div`
+  display: flex;
+  width: 98.5%;
+  justify-content: space-between;
+  align-items: center;
 `;

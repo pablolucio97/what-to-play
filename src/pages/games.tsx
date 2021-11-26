@@ -9,7 +9,8 @@ import {
     Container,
     LoadingContainer,
     SearchContainer,
-    GamesContainer
+    GamesContainer,
+    UserContainer
 } from '../styles/pages/games'
 import { GetStaticProps } from 'next'
 import { getGames, useGamesList } from '../hooks/useGamesList'
@@ -20,6 +21,7 @@ import SugestedGameSearch from '../components/SugestedGameSearch'
 import { useSession, signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import PrimaryButton from '../components/PrimaryButton';
+import UserInfo from '../components/UserInfo';
 
 export default function Games({ games }) {
 
@@ -59,17 +61,22 @@ export default function Games({ games }) {
                         <Container>
                             {
                                 session ?
-                                    <div>
-                                        <PrimaryButton
-                                            label="Acessar dashboard"
-                                            action={() => router.push('/dashboard')}
+                                    <UserContainer>
+                                        <UserInfo
+                                            name={session.user.name}
+                                            avatar={session.user.image}
                                         />
-                                    </div>
+
+                                        <PrimaryButton
+                                            action={() => router.push('/dashboard')}
+                                            label="Acessar Dasboard"
+                                        />
+                                    </UserContainer>
                                     :
-                                    <PrimaryButton
-                                        label="Fazer Login"
-                                        action={() => signIn('github')}
-                                    />
+                                    <span>Faça seu
+                                        <a onClick={() => signIn('github')}>Login</a>
+                                        para adicionar seus jogos ao favoritos e tornar a jogatina muito mais prática.
+                                    </span>
                             }
                             <SearchContainer>
                                 <SearchInput

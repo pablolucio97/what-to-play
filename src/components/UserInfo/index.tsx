@@ -8,7 +8,7 @@ export default function UserInfo({ avatar, name, id, children }: UserProps){
         <UserContainer >
             <UserInfoContainer key={id}>
                 <Avatar src={avatar} />
-                <UserName>Hello, {name}!</UserName>
+                <UserName>Olá, {name}!</UserName>
             </UserInfoContainer>
             <div>
                 {children}
