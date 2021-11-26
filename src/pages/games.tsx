@@ -17,17 +17,21 @@ import RingLoaderComponent from '../components/RingLoader'
 import { useState } from 'react'
 import SearchInput from '../components/SearchInput'
 import SugestedGameSearch from '../components/SugestedGameSearch'
-
+import { useSession, signIn } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import PrimaryButton from '../components/PrimaryButton';
 
 export default function Games({ games }) {
 
+    const [session] = useSession()
+    const router = useRouter()
 
     const { isFetching } = useGamesList({ initialData: games })
     const [loading, setLoading] = useState(true)
     const [searchGame, setSearchGame] = useState('')
     const [sugestedSearchGames, setSugestedSearchGames] = useState([])
 
-    
+
     useEffect(() => {
         const foundGame = games.filter((game) => game.title.toLowerCase() === searchGame.toLowerCase());
         setSugestedSearchGames([...foundGame])
@@ -53,6 +57,20 @@ export default function Games({ games }) {
                         </LoadingContainer>
                         :
                         <Container>
+                            {
+                                session ?
+                                    <div>
+                                        <PrimaryButton
+                                            label="Acessar dashboard"
+                                            action={() => router.push('/dashboard')}
+                                        />
+                                    </div>
+                                    :
+                                    <PrimaryButton
+                                        label="Fazer Login"
+                                        action={() => signIn('github')}
+                                    />
+                            }
                             <SearchContainer>
                                 <SearchInput
                                     search={searchGame}
