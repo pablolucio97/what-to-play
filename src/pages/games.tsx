@@ -74,7 +74,7 @@ export default function Games({ games }) {
                                     </UserContainer>
                                     :
                                     <span>Faça seu
-                                        <a onClick={() => signIn('github')}>Login</a>
+                                        <a onClick={() => router.push('/login')}>Login</a>
                                         para adicionar seus jogos ao favoritos e tornar a jogatina muito mais prática.
                                     </span>
                             }

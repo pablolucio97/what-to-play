@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 
   span{
-    margin-left: 1rem;
+    margin: 1rem 1rem 0;
     a{
       color: ${props => props.theme.colors.primary2};
       margin: 0 .24rem;
@@ -32,10 +32,10 @@ export const LoadingContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0.36rem auto;
+  margin: 4rem auto;
   span {
-    font-size: 2rem;
-    margin: 0.4rem auto;
+    font-size: 1.24rem;
+    margin: 1.4rem auto -1rem;
   }
 `;
 

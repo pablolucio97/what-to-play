@@ -9,7 +9,7 @@ export const Container = styled.div`
     padding: .4rem;
     cursor: pointer;
     transition: all .3s ease;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     
     &:hover {
         background: ${props => props.theme.colors.gray3};

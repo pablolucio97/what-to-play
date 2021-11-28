@@ -39,7 +39,7 @@ export const Img = styled.img`
     margin: 1rem auto;
 `
 
-export const GoogleLoginButton = styled.button`
+export const DiscordLoginButton = styled.button`
   width: 240px;
   height: 40px;
   font-weight: 500;
@@ -48,7 +48,7 @@ export const GoogleLoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ea4535;
+  background: #7289DA;
   color: #fff;
   transition: all 0.2s ease-in-out;
   padding: .4rem;
@@ -72,6 +72,28 @@ export const GitHubLoginButton = styled.button`
   align-items: center;
   justify-content: center;
   background: #000;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  padding: .4rem;
+  border: none;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 720px) {
+    margin: 1rem;
+  }
+`;
+export const GoogleLoginButton = styled.button`
+  width: 240px;
+  height: 40px;
+  font-weight: 500;
+  font-size: .8rem;
+  margin: .4rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ea4535;
   color: #fff;
   transition: all 0.2s ease-in-out;
   padding: .4rem;
