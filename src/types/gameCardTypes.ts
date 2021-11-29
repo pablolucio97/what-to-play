@@ -6,8 +6,9 @@ export type gameCardTypes = {
   game_url?: string;
   publisher?: string;
   freetogame_profile_url?: string;
-  addToFavorites?: () => void;
+  addToFavorites?: (id: any) => void;
   removeFromFavorites?: () => void;
+  prefetch?: (id: any) => void;
   actionLabelText?: string;
   isInactiveButton?: boolean;
 };

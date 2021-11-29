@@ -12,8 +12,10 @@ const Index = ({
     freetogame_profile_url,
     id,
     short_description,
-    thumbnail
+    thumbnail,
+    addToFavorites
 }: gameCardTypes) => {
+
     return (
         <Container key={id}>
             <Img src={thumbnail} />
@@ -22,7 +24,7 @@ const Index = ({
                     Play
                     <p>{short_description}</p>
                 </PlayButton>
-                <FavoriteButton onClick={() => { }}>
+                <FavoriteButton onClick={addToFavorites}>
                     Favorite
                     <p>{short_description}</p>
                 </FavoriteButton>

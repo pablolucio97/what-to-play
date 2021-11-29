@@ -15,7 +15,6 @@ import { useRouter } from 'next/router'
 import {SiDiscord, SiGithub, SiGoogle} from 'react-icons/si'
 
 
-
 export default function Login() {
 
     const [session] = useSession()
