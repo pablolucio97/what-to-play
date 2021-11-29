@@ -28,7 +28,10 @@ export default function Games({ games }) {
     const [session] = useSession()
     const router = useRouter()
 
-    const { isFetching } = useGamesList({ initialData: games })
+    const { isFetching } = useGamesList({ initialData: games,
+        refetchOnWindowFocus: false,
+        staleTime: 1000 * 60 * 2 //2 hours
+    })
     const [loading, setLoading] = useState(true)
     const [searchGame, setSearchGame] = useState('')
     const [sugestedSearchGames, setSugestedSearchGames] = useState([])
