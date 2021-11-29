@@ -22,24 +22,24 @@ export default NextAuth({
     callbacks: {
         async signIn(user) {
             const { email, name } = user;
-            try {
-                await fauna.query(
-                    q.If(
-                        q.Not(
-                            q.Exists(
-                                q.Match(q.Index("get_users"), q.Casefold(user.email))
-                            )
-                        ),
-                        q.Create(q.Collection("users"), { data: { email, name } }),
-                        q.Get(q.Match(q.Index("get_users"), q.Casefold(user.email)))
+           try {
+            await fauna.query(
+                q.If(
+                  q.Not(
+                    q.Exists(
+                      q.Match(q.Index("get_users"), q.Casefold(user.email))
                     )
-                );
+                  ),
+                  q.Create(q.Collection("users"), { data: { email, name } }),
+                  q.Get(q.Match(q.Index("get_users"), q.Casefold(user.email)))
+                )
+              );
 
-                return true
-            } catch (error) {
-                console.log(error)
-                return false
-            }
+            return true
+           } catch (error) {
+               console.log(error)
+               return false
+           }
         }
     }
 })

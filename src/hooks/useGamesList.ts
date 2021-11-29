@@ -24,4 +24,3 @@ export function useGamesList(options: UseQueryOptions){
         ...options
     })
 }
-

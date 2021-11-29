@@ -18,7 +18,7 @@ import RingLoaderComponent from '../components/RingLoader'
 import { useState } from 'react'
 import SearchInput from '../components/SearchInput'
 import SugestedGameSearch from '../components/SugestedGameSearch'
-import { useSession } from 'next-auth/client'
+import { useSession, signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import PrimaryButton from '../components/PrimaryButton';
 import UserInfo from '../components/UserInfo';
@@ -28,11 +28,7 @@ export default function Games({ games }) {
     const [session] = useSession()
     const router = useRouter()
 
-    const { isFetching } = useGamesList({ 
-        initialData: games, 
-        staleTime: 5000,
-        refetchOnWindowFocus: false,
-     })
+    const { isFetching } = useGamesList({ initialData: games })
     const [loading, setLoading] = useState(true)
     const [searchGame, setSearchGame] = useState('')
     const [sugestedSearchGames, setSugestedSearchGames] = useState([])
@@ -43,10 +39,6 @@ export default function Games({ games }) {
         setSugestedSearchGames([...foundGame])
     }, [searchGame])
 
-
-    function addToFavorites(id){
-        console.log(id)
-    }
 
     return (
         <Container>
@@ -110,7 +102,6 @@ export default function Games({ games }) {
                                             id={game.id}
                                             freetogame_profile_url={game.freetogame_profile_url}
                                             thumbnail={game.thumbnail}
-                                            addToFavorites={() => addToFavorites(game.id)}
                                         />
                                     ))}
 
