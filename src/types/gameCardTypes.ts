@@ -10,6 +10,7 @@ export type gameCardTypes = {
   removeFromFavorites?: () => void;
   actionLabelText?: string;
   isInactiveButton?: boolean;
+  show_favorite?: boolean;
 };
 
 

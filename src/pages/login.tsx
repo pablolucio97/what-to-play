@@ -23,7 +23,7 @@ export default function Login() {
 
     useEffect(() => {
         if (session) {
-            router.push('/dashboard')
+            router.push('/games')
         }
     }, [session])
 

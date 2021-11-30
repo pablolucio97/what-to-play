@@ -4,10 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 368px;
-  height: 260px;
   background: ${(props) => props.theme.colors.gray};
-  border-radius: 4px;
   margin: 1rem;
   transition: all 0.2s ease-in-out;
 
@@ -39,8 +36,10 @@ export const Img = styled.img`
 
 export const ButtonsContainer = styled.div`
   display: flex; 
+  flex-direction: column;
   justify-content: space-between;
-  padding-top: 1rem;
+  padding: 1rem;
+  width: 100%;
 `
 
 export const GameTitle = styled.h3`
@@ -52,12 +51,11 @@ export const PlayButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  margin: 0 .24rem;
-  height: 24px;
-  border-radius: 4px;
+  width: 80%;
+  margin: 1rem auto;
+  height: 32px;
   color: ${(props) => props.theme.colors.gray2};
-  background: ${(props) => props.theme.colors.gray};
+  background: ${(props) => props.theme.colors.primary2};
   border: 1px solid ${(props) => props.theme.colors.primary1};
   transition: all .3s ease-in-out;
   outline: none;
@@ -76,12 +74,11 @@ export const FavoriteButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  margin: 0 .24rem;
-  height: 24px;
-  border-radius: 4px;
-  color: ${(props) => props.theme.colors.gray2};
-  background: ${(props) => props.theme.colors.gray};
+  width: 80%;
+  margin: 0 auto 1rem;
+  height: 32px;
+  color: #fff;
+  background: ${(props) => props.theme.colors.secondary2};
   border: 1px solid ${(props) => props.theme.colors.secondary1};
   outline: none;
   transition: all .3s ease-in-out;

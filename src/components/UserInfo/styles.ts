@@ -31,10 +31,10 @@ export const UserInfoContainer = styled.div`
 `
 
 export const Avatar = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     border-radius: 100%;
-    margin: 1rem;
+    margin: 1rem 1rem 2rem;
     border: 2px solid ${props => props.theme.colors.gray2};
 `
 
