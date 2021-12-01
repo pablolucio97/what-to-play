@@ -7,7 +7,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     case "GET":
       try {
         await fauna
-          .query(q.Paginate(q.Match(q.Index("get_favorites"))))
+          .query(q.Map(
+            q.Paginate(q.Documents(q.Collection('favorites'))),
+            q.Lambda(fav => q.Get(fav))
+          ))
           .then((ret) => res.json(ret))
           .catch((err) => console.log(err));
         return res.send(res.json);

@@ -4,11 +4,11 @@ import Footer from '../components/Footer';
 import UserInfo from '../components/UserInfo';
 import PrimaryButton from '../components/PrimaryButton'
 import SecondaryButton from '../components/SecondaryButton'
-import { Container, FavoritesContainer } from '../styles/pages/dashboard'
+import { Container, FavoritesContainer, UserContainer } from '../styles/pages/dashboard'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
 import { signOut, useSession } from 'next-auth/client'
-import {api} from '../services/api'
+import { api } from '../services/api'
 import FavoriteGame from '../components/FavoriteGame';
 
 export default function DashBoard() {
@@ -32,8 +32,8 @@ export default function DashBoard() {
         }
     }, [])
 
-    async function getFavorites(){
-        const {data} = await api.get('/favorites')
+    async function getFavorites() {
+        const { data } = await api.get('/favorites')
         const favorites = data.data
         setFavoriteGames(favorites)
     }
@@ -41,7 +41,7 @@ export default function DashBoard() {
     useEffect(() => {
         getFavorites()
         console.log(favoriteGames)
-    },[])
+    }, [])
 
     return (
         <Container>
@@ -49,27 +49,39 @@ export default function DashBoard() {
             <main>
                 {
                     session &&
-                    <>
+                    <UserContainer>
                         <UserInfo
                             name={session.user.name}
                             avatar={session.user.image}
                         />
-                        <button onClick={openModal}>
-                            Sair
-                        </button>
-                    </>
+
+                        <SecondaryButton
+                            action={openModal}
+                            label="Sair"
+                        />
+                    </UserContainer>
                 }
 
-                <FavoritesContainer>
+
+                <h2>Minha bibiolteca de jogos</h2>
+                <>
                     {favoriteGames.length === 0 ?
                         <h3>Não há nada por aqui. Que tal adicionar <a onClick={() => { router.push('/games') }}>alguns jogos</a> ?</h3> :
-                        favoriteGames.map((game) => (
-                            <div>
-                               <h1>{game}</h1>
-                           </div>
-                        ))
+                        <FavoritesContainer>
+                            {
+                                favoriteGames.map((game) => (
+                                    <FavoriteGame
+                                        key={game.data.key}
+                                        title={game.data.title}
+                                        thumbnail={game.data.thumbnail}
+                                        id={game.data.id}
+                                        freetogame_profile_url={game.data.freetogame_profile_url}
+                                    />
+                                ))
+                            }
+                        </FavoritesContainer>
                     }
-                </FavoritesContainer>
+                </>
             </main>
             <Modal
                 isOpen={modalIsOpen}

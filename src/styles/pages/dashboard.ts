@@ -10,10 +10,25 @@ export const Container = styled.div`
   main {
     margin: 8rem auto 2rem;
   }
-  button {
-    margin: 0rem 1.48rem;
-  }
 
+  h2 {
+    margin: 2rem;
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.gray};
+    font-size: 1.24rem;
+  }
+`;
+
+export const UserContainer = styled.div`
+  display: flex;
+  width: 1080px;
+  justify-content: space-between;
+  align-items: center;
+  & button {
+    margin-right: 1.88rem;
+    width: 80px;
+    height: 32px;
+  }
 `;
 
 export const FavoritesContainer = styled.div`
@@ -21,21 +36,18 @@ export const FavoritesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 920px;
-  height: 640px;
-  margin: 2rem auto 1rem;
-  background: ${(props) => props.theme.colors.gray4};
+  width: 100%;
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.24rem;
     color: ${(props) => props.theme.colors.gray2};
     width: 400px;
     text-align: center;
   }
 
-  a {
-    color: ${(props) => props.theme.colors.secondary2};
+  button{
+    width: 120px;
+    height: 32px;
   }
-
-
+  
 `;
