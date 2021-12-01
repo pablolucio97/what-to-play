@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import "regenerator-runtime/runtime";
 import "core-js/stable";
 import "babel-polyfill"
@@ -18,17 +18,20 @@ import RingLoaderComponent from '../components/RingLoader'
 import { useState } from 'react'
 import SearchInput from '../components/SearchInput'
 import SugestedGameSearch from '../components/SugestedGameSearch'
-import { useSession, signIn } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import PrimaryButton from '../components/PrimaryButton';
 import UserInfo from '../components/UserInfo';
+import { api } from '../services/api'
+import { route } from 'next/dist/server/router';
 
 export default function Games({ games }) {
 
     const [session] = useSession()
     const router = useRouter()
 
-    const { isFetching } = useGamesList({ initialData: games,
+    const { isFetching } = useGamesList({
+        initialData: games,
         refetchOnWindowFocus: false,
         staleTime: 1000 * 60 * 2 //2 hours
     })
@@ -42,38 +45,44 @@ export default function Games({ games }) {
         setSugestedSearchGames([...foundGame])
     }, [searchGame])
 
-    
+
+    async function newFavorite(id, title, freetogame_profile_url, thumbnail) {
+        await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail }).then(res => console.log(res))
+    }
+
+
+
     return (
         <Container>
             <Header />
             <main>
                 {
                     isFetching ?
-                    <LoadingContainer>
+                        <LoadingContainer>
                             <img
                                 src='/loading-char.png'
                                 width={340}
                                 height={400}
-                                />
+                            />
                             <span>Carregando...</span>
                             <RingLoaderComponent
                                 isLoading={loading}
-                                />
+                            />
                         </LoadingContainer>
                         :
                         <Container>
                             {
                                 session ?
-                                <UserContainer>
+                                    <UserContainer>
                                         <UserInfo
                                             name={session.user.name}
                                             avatar={session.user.image}
-                                            />
+                                        />
 
                                         <PrimaryButton
                                             action={() => router.push('/dashboard')}
-                                            label="Acessar Dasboard"
-                                            />
+                                            label="Acessar Dashboard"
+                                        />
                                     </UserContainer>
                                     :
                                     <span>Faça seu
@@ -86,29 +95,30 @@ export default function Games({ games }) {
                                     search={searchGame}
                                     updateSearch={(e) => setSearchGame(e.target.value)}
                                     placeholder='Buscar por um título, ex: (Valorant)'
-                                    />
+                                />
                                 {sugestedSearchGames.map(game => (
                                     <SugestedGameSearch
-                                    id={game.id}
-                                    title={game.title}
-                                    thumbnail={game.thumbnail}
-                                    freetogame_profile_url={game.freetogame_profile_url}
-                                    show_favorite={!!session}
+                                        id={game.id}
+                                        title={game.title}
+                                        thumbnail={game.thumbnail}
+                                        freetogame_profile_url={game.freetogame_profile_url}
+                                        show_favorite={!!session}
                                     />
-                                    ))}
+                                ))}
                             </SearchContainer>
                             <GamesContainer>
                                 {
                                     //@ts-ignore 
                                     games.map(game => (
                                         <GameCard
-                                        key={game.id}
-                                        id={game.id}
-                                        freetogame_profile_url={game.freetogame_profile_url}
-                                        thumbnail={game.thumbnail}
-                                        show_favorite={!!session}
+                                            key={game.id}
+                                            id={game.id}
+                                            freetogame_profile_url={game.freetogame_profile_url}
+                                            thumbnail={game.thumbnail}
+                                            show_favorite={!!session}
+                                            addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail)}
                                         />
-                                        ))}
+                                    ))}
 
                             </GamesContainer>
                         </Container>

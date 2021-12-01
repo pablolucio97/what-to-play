@@ -1,11 +1,11 @@
 import 'regenerator-runtime/runtime';
 import { useQuery, UseQueryOptions } from 'react-query'
-import {api} from '../services/api'
 import {gameTypes} from '../types/gameCardTypes'
 
 
 export const getGames = async () => {
-     const { data } = await api.get<gameTypes[]>('/games')
+     const response = await fetch('https://www.freetogame.com/api/games')
+     const data = await response.json()
     const games = data.map(game => {
         return {
             id: game.id,

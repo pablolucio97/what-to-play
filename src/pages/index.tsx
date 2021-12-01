@@ -1,16 +1,10 @@
 import React from 'react'
-import "regenerator-runtime/runtime";
-import "core-js/stable";
-import "babel-polyfill"
-import "core-js/stable"
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GameSection from '../components/GameSection'
 import PrimaryButton from '../components/PrimaryButton'
-import { api } from '../services/api'
-import { gameTypes } from '../types/gameCardTypes'
 import { Container, Main, Banner, ButtonsContainer } from '../styles/pages/index'
 
 
@@ -56,8 +50,9 @@ export default function Home({ releasedGames }) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const data = await api.get<gameTypes[]>('/games')
-  const releasedGames = data.data.map(game => {
+  const response = await fetch('https://www.freetogame.com/api/games')
+  const data = await response.json()
+  const releasedGames = data.map(game => {
     return {
       id: game.id,
       thumbnail: game.thumbnail

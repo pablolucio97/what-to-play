@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import {
     PlayButton,
     FavoriteButton,
@@ -14,27 +14,29 @@ const Index = ({
     id,
     short_description,
     thumbnail,
-    show_favorite
+    show_favorite,
+    addToFavorites
 }: gameCardTypes) => {
     return (
         <Container key={id}>
             <Img src={thumbnail} />
             <ButtonsContainer>
                 <PlayButton onClick={() => { window.open(freetogame_profile_url) }}>
-                <FiPlay
-                            style={{marginRight: 8}}
-                        />
+                    <FiPlay
+                        style={{ marginRight: 8 }}
+                    />
                     Play
                     <p>{short_description}</p>
                 </PlayButton>
                 {show_favorite &&
-                    <FavoriteButton onClick={() => { }}>
+                    <FavoriteButton onClick={addToFavorites}>
                         <FiHeart
-                            style={{marginRight: 8}}
+                            style={{ marginRight: 8 }}
                         />
                         Favorite
                         <p>{short_description}</p>
-                    </FavoriteButton>}
+                    </FavoriteButton>
+                }
             </ButtonsContainer>
         </Container>
     )

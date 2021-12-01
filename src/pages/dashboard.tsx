@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import UserInfo from '../components/UserInfo';
@@ -8,14 +8,16 @@ import { Container, FavoritesContainer } from '../styles/pages/dashboard'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
 import { signOut, useSession } from 'next-auth/client'
+import {api} from '../services/api'
+import FavoriteGame from '../components/FavoriteGame';
 
 export default function DashBoard() {
 
     const router = useRouter()
     const [session] = useSession()
 
-
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [favoriteGames, setFavoriteGames] = useState([])
 
     function openModal() {
         setModalIsOpen(true)
@@ -29,6 +31,17 @@ export default function DashBoard() {
             router.push('/games')
         }
     }, [])
+
+    async function getFavorites(){
+        const {data} = await api.get('/favorites')
+        const favorites = data.data
+        setFavoriteGames(favorites)
+    }
+
+    useEffect(() => {
+        getFavorites()
+        console.log(favoriteGames)
+    },[])
 
     return (
         <Container>
@@ -48,7 +61,14 @@ export default function DashBoard() {
                 }
 
                 <FavoritesContainer>
-                    <h3>Não há nada por aqui. Que tal adicionar <a onClick={() => { router.push('/games') }}>alguns jogos</a> ?</h3>
+                    {favoriteGames.length === 0 ?
+                        <h3>Não há nada por aqui. Que tal adicionar <a onClick={() => { router.push('/games') }}>alguns jogos</a> ?</h3> :
+                        favoriteGames.map((game) => (
+                            <div>
+                               <h1>{game}</h1>
+                           </div>
+                        ))
+                    }
                 </FavoritesContainer>
             </main>
             <Modal
