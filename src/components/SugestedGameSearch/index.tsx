@@ -10,7 +10,8 @@ export default function SugestedGameSearch({
     thumbnail,
     freetogame_profile_url,
     show_favorite,
-    short_description
+    short_description,
+    addToFavorites
 }: gameCardTypes) {
     return (
         <Container key={id}>
@@ -25,7 +26,7 @@ export default function SugestedGameSearch({
                     <p>{short_description}</p>
                 </PlayButton>
                 {show_favorite &&
-                    <FavoriteButton onClick={() => { }}>
+                    <FavoriteButton onClick={addToFavorites}>
                         <FiHeart
                             style={{marginRight: 8}}
                         />

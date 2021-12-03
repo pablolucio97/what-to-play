@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import connectDb from "../../services/mongo";
-
 import connectToDatabase from "../../services/mongo";
 
 connectToDatabase();
@@ -14,14 +13,19 @@ export default async (
   switch (req.method) {
     case "POST":
       try {
-        const { id, title, thumbnail, freetogame_profile_url } = req.body;
-        const response = await db.collection("favorites").insertOne({
-          id,
-          title,
-          freetogame_profile_url,
-          thumbnail,
-        });
-        res.status(200).json({ success: true, data: response });
+        const { id, title, thumbnail, freetogame_profile_url, short_description } = req.body;
+        const hasTitle = await db.collection("favorites").findOne({ id });
+        res.json({ error: "Game already exists in your lib." });
+        if (!hasTitle) {
+          const response = await db.collection("favorites").insertOne({
+            id,
+            title,
+            freetogame_profile_url,
+            thumbnail,
+            short_description
+          });
+          res.status(200).json({ success: true, data: response });
+        }
       } catch (error) {
         console.error(error);
       }

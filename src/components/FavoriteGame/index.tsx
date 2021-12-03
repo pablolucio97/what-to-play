@@ -6,7 +6,8 @@ import {
     GameTitle,
     ButtonPlay,
     SubContainer,
-    ButtonsContainer
+    ButtonsContainer,
+    DescriptioContainer
 } from './styles'
 import { gameCardTypes } from '../../types/gameCardTypes'
 import { RiDislikeLine } from 'react-icons/ri'
@@ -23,16 +24,18 @@ const Index = ({
         <Container key={id}>
             <SubContainer>
                 <Img src={thumbnail} />
-                <GameTitle>{title}</GameTitle>
             </SubContainer>
-            <p>{short_description}</p>
+            <DescriptioContainer>
+                <GameTitle>{title}</GameTitle>
+                <p>{short_description}</p>
+            </DescriptioContainer>
             <ButtonsContainer>
+                <ButtonPlay onClick={() => { window.open(freetogame_profile_url) }}>
+                    Play
+                </ButtonPlay>
                 <ButtonDislike onClick={removeFromFavorites}>
                     <RiDislikeLine />
                 </ButtonDislike>
-                <ButtonPlay onClick={() => {window.open(freetogame_profile_url)}}>
-                    Play
-                </ButtonPlay>
             </ButtonsContainer>
         </Container>
     )

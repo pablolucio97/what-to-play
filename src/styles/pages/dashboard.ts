@@ -10,13 +10,13 @@ export const Container = styled.div`
     margin: 8rem auto 2rem;
     span {
       button {
-        margin: 0 2.24rem 6rem;
+        margin: 0 2.08rem 6rem;
       }
     }
   }
 
   h2 {
-    margin: 2rem;
+    margin: 6rem 2rem 0;
     font-weight: 500;
     color: ${(props) => props.theme.colors.gray};
     font-size: 1.24rem;
@@ -51,15 +51,22 @@ export const FavoritesContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 2rem auto;
 
   h3 {
-    font-size: 1.24rem;
-    color: ${(props) => props.theme.colors.gray2};
+    font-size: 1.08rem;
+    color: ${(props) => props.theme.colors.secondary1};
     width: 400px;
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
   }
-
+  
+  p{
+    color: ${(props) => props.theme.colors.gray2};
+    font-size: .8rem;
+    font-weight: 300;
+  }
+  
   button {
     width: 120px;
     height: 32px;

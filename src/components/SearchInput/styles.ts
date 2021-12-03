@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Input = styled.input`
-    width: 95%;
+    width: 94.6%;
     height: 24px;
     padding: 1rem;
     background: ${props => props.theme.colors.gray2};

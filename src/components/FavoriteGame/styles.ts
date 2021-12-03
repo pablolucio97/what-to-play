@@ -1,3 +1,4 @@
+import { Descriptionontainer } from './../Footer/styles';
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -39,7 +40,6 @@ export const SubContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 400px;
   @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
@@ -62,10 +62,22 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const GameTitle = styled.h3`
-  font-size: 1rem;
-  color: ${(props) => props.theme.colors.gray2};
-  margin: 2rem;
+export const DescriptioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  word-wrap: break-word;
+  width: 640px;
+
+  h4{
+    margin-bottom: 0;
+  }
+
+`
+
+export const GameTitle = styled.h4`
+  font-size: 1.12rem;
+  color: ${(props) => props.theme.colors.secondary1};
 
 `;
 export const ButtonPlay = styled.button`

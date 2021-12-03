@@ -11,7 +11,8 @@ import { signOut, useSession } from 'next-auth/client'
 import { api } from '../services/api'
 import FavoriteGame from '../components/FavoriteGame';
 import { gameCardTypes } from '../types/gameCardTypes'
-import Link from 'next/link'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function DashBoard() {
 
@@ -46,9 +47,21 @@ export default function DashBoard() {
         getFavorites()
     }, [removeFavorite])
 
+
     async function removeFavorite(id) {
         //@ts-ignore
-        await api.delete('/favorites', { data: { id: id } })
+        await api.delete('/favorites', { data: { id: id } }).then(() => {
+            toast.success('Título removido.',{
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                pauseOnFocusLoss: false
+            })
+        })
     }
 
     return (
@@ -83,6 +96,7 @@ export default function DashBoard() {
                                         key={game.id}
                                         title={game.title}
                                         thumbnail={game.thumbnail}
+                                        short_description={game.short_description}
                                         freetogame_profile_url={game.freetogame_profile_url}
                                         removeFromFavorites={() => removeFavorite(game.id)}
                                     />
@@ -91,6 +105,17 @@ export default function DashBoard() {
                         </>
                     }
                 </FavoritesContainer>
+                <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
                 <span>
                     <PrimaryButton
                         label='Acessar todos os jogos'

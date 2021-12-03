@@ -21,6 +21,8 @@ import PrimaryButton from '../components/PrimaryButton';
 import UserInfo from '../components/UserInfo';
 import { api } from '../services/api'
 import Link from 'next/link'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Games({ games }) {
 
@@ -30,7 +32,8 @@ export default function Games({ games }) {
     const { isFetching } = useGamesList({
         initialData: games,
         refetchOnWindowFocus: false,
-        staleTime: 1000 * 60 * 2 //2 hours
+        retryOnMount: false,
+        staleTime: 1000 * 60 * 5 //5 min
     })
     const [loading, setLoading] = useState(true)
     const [searchGame, setSearchGame] = useState('')
@@ -43,14 +46,42 @@ export default function Games({ games }) {
     }, [searchGame])
 
 
-    async function newFavorite(id, title, freetogame_profile_url, thumbnail) {
-        await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail }).then(res => console.log(res))
+    async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
+        try {
+            await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail, short_description }).then(() => {
+                toast.success('Jogo adicionado à sua bilioteca.', {
+                    position: "bottom-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    pauseOnFocusLoss: false
+                })
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 
     return (
         <Container>
             <Header />
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
             <main>
                 {
                     isFetching ?
@@ -100,7 +131,9 @@ export default function Games({ games }) {
                                         title={game.title}
                                         thumbnail={game.thumbnail}
                                         freetogame_profile_url={game.freetogame_profile_url}
+                                        short_description={game.short_description}
                                         show_favorite={!!session}
+                                        addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail, game.short_description)}
                                     />
                                 ))}
                             </SearchContainer>
@@ -113,7 +146,8 @@ export default function Games({ games }) {
                                             freetogame_profile_url={game.freetogame_profile_url}
                                             thumbnail={game.thumbnail}
                                             show_favorite={!!session}
-                                            addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail)}
+                                            addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail, game.
+                                                short_description)}
                                         />
                                     ))}
 
