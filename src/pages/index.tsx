@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import GameSection from '../components/GameSection'
 import PrimaryButton from '../components/PrimaryButton'
 import { Container, Main, Banner, ButtonsContainer } from '../styles/pages/index'
+import Link from 'next/link'
 
 
 export default function Home({ releasedGames }) {
@@ -17,7 +18,10 @@ export default function Home({ releasedGames }) {
       <Header />
       <Banner>
         <h1>Centenas de jogos grátis</h1>
-        <span>Faça <a onClick={() => router.push('/login')}> login </a>e comece a jogar</span>
+        <span>Faça
+          <Link href='/login'>
+            <a> Login </a>
+          </Link>e comece a jogar</span>
       </Banner>
       <Main>
         <GameSection

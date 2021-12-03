@@ -10,6 +10,8 @@ import Modal from 'react-modal'
 import { signOut, useSession } from 'next-auth/client'
 import { api } from '../services/api'
 import FavoriteGame from '../components/FavoriteGame';
+import { gameCardTypes } from '../types/gameCardTypes'
+import Link from 'next/link'
 
 export default function DashBoard() {
 
@@ -17,7 +19,7 @@ export default function DashBoard() {
     const [session] = useSession()
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [favoriteGames, setFavoriteGames] = useState([])
+    const [favoriteGames, setFavoriteGames] = useState<gameCardTypes[]>([])
 
     function openModal() {
         setModalIsOpen(true)
@@ -26,22 +28,28 @@ export default function DashBoard() {
         setModalIsOpen(false)
     }
 
+    async function getFavorites() {
+        const { data } = await api.get('/favorites')
+        const favorites = data.favorites
+        setFavoriteGames(favorites)
+    }
+
+
     useEffect(() => {
         if (!session) {
             router.push('/games')
         }
     }, [])
 
-    async function getFavorites() {
-        const { data } = await api.get('/favorites')
-        const favorites = data.data
-        setFavoriteGames(favorites)
-    }
 
     useEffect(() => {
         getFavorites()
-        console.log(favoriteGames)
-    }, [])
+    }, [removeFavorite])
+
+    async function removeFavorite(id) {
+        //@ts-ignore
+        await api.delete('/favorites', { data: { id: id } })
+    }
 
     return (
         <Container>
@@ -63,25 +71,32 @@ export default function DashBoard() {
                 }
 
 
-                <h2>Minha bibiolteca de jogos</h2>
-                <>
+                <h2>Minha biblioteca de jogos</h2>
+
+                <FavoritesContainer>
                     {favoriteGames.length === 0 ?
                         <h3>Não há nada por aqui. Que tal adicionar <a onClick={() => { router.push('/games') }}>alguns jogos</a> ?</h3> :
-                        <FavoritesContainer>
+                        <>
                             {
                                 favoriteGames.map((game) => (
                                     <FavoriteGame
-                                        key={game.data.key}
-                                        title={game.data.title}
-                                        thumbnail={game.data.thumbnail}
-                                        id={game.data.id}
-                                        freetogame_profile_url={game.data.freetogame_profile_url}
+                                        key={game.id}
+                                        title={game.title}
+                                        thumbnail={game.thumbnail}
+                                        freetogame_profile_url={game.freetogame_profile_url}
+                                        removeFromFavorites={() => removeFavorite(game.id)}
                                     />
                                 ))
                             }
-                        </FavoritesContainer>
+                        </>
                     }
-                </>
+                </FavoritesContainer>
+                <span>
+                    <PrimaryButton
+                        label='Acessar todos os jogos'
+                        action={() => router.push('/games')}
+                    />
+                </span>
             </main>
             <Modal
                 isOpen={modalIsOpen}

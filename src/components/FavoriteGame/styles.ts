@@ -4,11 +4,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 92%;
+  width: 88.4%;
   background: ${(props) => props.theme.colors.gray};
   color: ${(props) => props.theme.colors.text};
   margin: 1rem auto;
-  padding:1rem;
+  padding: 1rem 2rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {

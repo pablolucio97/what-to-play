@@ -1,6 +1,6 @@
 import {FormEvent} from 'react'
 export type gameCardTypes = {
-  id: number;
+  id?: number;
   title?: string;
   thumbnail: string;
   short_description?: string;

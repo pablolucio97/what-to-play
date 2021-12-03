@@ -1,7 +1,4 @@
-import React, { FormEvent, useEffect } from 'react';
-import "regenerator-runtime/runtime";
-import "core-js/stable";
-import "babel-polyfill"
+import React, { useEffect } from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GameCard from '../components/GameCard'
@@ -23,7 +20,7 @@ import { useRouter } from 'next/router'
 import PrimaryButton from '../components/PrimaryButton';
 import UserInfo from '../components/UserInfo';
 import { api } from '../services/api'
-import { route } from 'next/dist/server/router';
+import Link from 'next/link'
 
 export default function Games({ games }) {
 
@@ -49,7 +46,6 @@ export default function Games({ games }) {
     async function newFavorite(id, title, freetogame_profile_url, thumbnail) {
         await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail }).then(res => console.log(res))
     }
-
 
 
     return (
@@ -86,7 +82,9 @@ export default function Games({ games }) {
                                     </UserContainer>
                                     :
                                     <span>Faça seu
-                                        <a onClick={() => router.push('/login')}>Login</a>
+                                        <Link href='/login'>
+                                            <a>Login</a>
+                                        </Link>
                                         para adicionar seus jogos ao favoritos e tornar a jogatina muito mais prática.
                                     </span>
                             }
@@ -108,7 +106,6 @@ export default function Games({ games }) {
                             </SearchContainer>
                             <GamesContainer>
                                 {
-                                    //@ts-ignore 
                                     games.map(game => (
                                         <GameCard
                                             key={game.id}

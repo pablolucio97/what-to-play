@@ -1,64 +1,49 @@
-import { fauna } from "../../services/faunadb";
-import { query as q } from "faunadb";
 import { NextApiRequest, NextApiResponse } from "next";
+import connectDb from "../../services/mongo";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+import connectToDatabase from "../../services/mongo";
+
+connectToDatabase();
+
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
+  const { db } = await connectDb();
+
   switch (req.method) {
-    case "GET":
-      try {
-        await fauna
-          .query(q.Map(
-            q.Paginate(q.Documents(q.Collection('favorites'))),
-            q.Lambda(fav => q.Get(fav))
-          ))
-          .then((ret) => res.json(ret))
-          .catch((err) => console.log(err));
-        return res.send(res.json);
-      } catch (error) {
-        console.log(error);
-      }
-      break;
     case "POST":
       try {
-        const { id, title, freetogame_profile_url, thumbnail } = req.body;
-
-        await fauna
-          .query(
-            q.Create(q.Collection("favorites"), {
-              data: { gameId: id, title, freetogame_profile_url, thumbnail },
-            })
-          )
-          .then((ret) => res.json(ret))
-          .catch((err) => console.log(err));
-        return res.status(201).json({ success: true });
+        const { id, title, thumbnail, freetogame_profile_url } = req.body;
+        const response = await db.collection("favorites").insertOne({
+          id,
+          title,
+          freetogame_profile_url,
+          thumbnail,
+        });
+        res.status(200).json({ success: true, data: response });
       } catch (error) {
-        console.log(error);
-        return false;
+        console.error(error);
       }
       break;
+    case "GET":
+      try {
+        const favorites = await db.collection("favorites").find().toArray();
+        res.status(200).json({ favorites });
+      } catch (error) {
+        console.log(error);
+      }
+      break;
+    case "DELETE":
+      try {
+        const { id } = req.body;
+        const deletedFavorite = await db
+          .collection("favorites")
+          .findOneAndDelete({ id });
+        res.status(200).json(deletedFavorite);
+      } catch (error) {
+        console.log(error);
+      }
     default:
   }
 };
-
-/* export async function addToFavorites(gameId, gameTitle) {
-  try {
-    await fauna
-      .query(
-        q.If(
-          q.Not(q.Exists(q.Match(q.Index("get_game"), q.Casefold(gameTitle)))),
-          q.Create(q.Collection("favorites"), {
-            data: { gameId, title: gameTitle },
-          }),
-          q.Get(q.Match(q.Index("get_game"), q.Casefold(gameTitle)))
-        )
-      )
-      .then((ret) => console.log(ret))
-      .catch((err) => console.error("Error: %s", err));
-
-    console.log(gameId, gameTitle);
-    return true;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-} */
