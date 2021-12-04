@@ -11,5 +11,9 @@ export const Button = styled.button`
     border: 1px solid ${props => props.theme.colors.primary1};
     color: ${props => props.theme.colors.primary1};
     background: transparent;
-
+    @media(max-width: 720px){
+        width: 188px;
+        height: 40px;
+        font-size: .92rem;
+    }
 `

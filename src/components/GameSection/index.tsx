@@ -2,6 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import ImageGameCard from '../ImageGameCard'
 import { api } from '../../services/api'
+import { Container } from './styles'
 
 
 type GameProps = {
@@ -21,7 +22,7 @@ export default function GameSection({
     finalQueryIndex
 }: GameSectionProps) {
     return (
-        <div>
+        <Container>
             {
                 releasedGames.map(game => (
                     <ImageGameCard
@@ -30,7 +31,7 @@ export default function GameSection({
                     />
                 )).slice(initialQueryIndex, finalQueryIndex)
             }
-        </div>
+        </Container>
     )
 }
 

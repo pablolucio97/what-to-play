@@ -20,7 +20,7 @@ export const Container = styled.div`
   }
 
   @media(max-width: 720px){
-    width: 278px;
+    width: 27px;
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -37,8 +37,9 @@ export const Img = styled.img`
   -webkit-box-reflect: below 0 linear-gradient(to bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
   
   @media(max-width: 720px){
-    width: 274px;
+    width: 264px;
     height: 154px; 
+    margin: 1rem;
   }
 `;
 

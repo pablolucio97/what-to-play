@@ -10,5 +10,9 @@ export const Button = styled.button`
     font-size: 1.12rem;
     background: ${props => props.theme.colors.primary1};
     color: #fff;
-
+    @media(max-width: 720px){
+        width: 188px;
+        height: 40px;
+        font-size: .92rem;
+    }
 `
