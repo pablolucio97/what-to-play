@@ -11,13 +11,12 @@ export const Container = styled.header`
   margin-bottom: 4rem;
   background: ${(props) => props.theme.colors.gray};
   padding: 1rem 0.4rem;
-  border-bottom: 1px solid ${(props) => props.theme.colors.secondary1};
   box-shadow: 0 0 8px #000;
 
   @media (max-width: 720px) {
-    height: 72px;
     flex-direction: column;
     justify-content: center;
+    padding-top: 1.14rem;
     align-items: center;
   }
 `;
@@ -33,8 +32,8 @@ export const TitleContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-left: 0;
-    margin-top: 0.4rem;
-    margin-bottom: -2rem;
+    margin-top: .72rem;
+    margin-bottom: .48rem;
   }
 `;
 
@@ -44,8 +43,8 @@ export const Title = styled.h1`
   margin-left: 1rem;
 
   @media (max-width: 720px) {
-    font-size: 1rem;
-    margin-top: 0.16rem;
+    font-size: .88rem;
+    margin-top: 0.1rem;
     margin-left: 0;
   }
 `;

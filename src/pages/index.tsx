@@ -29,16 +29,7 @@ export default function Home({ releasedGames }) {
           initialQueryIndex={0}
           finalQueryIndex={3}
         />
-        <GameSection
-          releasedGames={releasedGames}
-          initialQueryIndex={4}
-          finalQueryIndex={7}
-        />
-        <GameSection
-          releasedGames={releasedGames}
-          initialQueryIndex={8}
-          finalQueryIndex={11}
-        />
+
         <ButtonsContainer>
           <h1>+ de 360 jogos disponíveis para jogar gratuitamente</h1>
           <PrimaryButton

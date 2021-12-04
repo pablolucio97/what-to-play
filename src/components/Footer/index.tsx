@@ -19,7 +19,7 @@ export default function Footer() {
                 </Descriptionontainer>
                 <LogoContainer>
                     <h1>WhatToPlay</h1>
-                    <BiJoystickButton size={48} color='#fff' />
+                    <BiJoystickButton size={48} color='#fff' style={{marginLeft: 16}} />
                 </LogoContainer>
             </FooterContent>
             <Divider />

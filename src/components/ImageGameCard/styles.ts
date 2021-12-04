@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 368px;
   height: 260px;
   border-radius: 4px;
-  margin: -.4rem 1rem;
+  margin: -.4rem 1rem 8rem;
 
   @media(max-width: 1240px){
     width: 640px;
@@ -34,6 +34,7 @@ export const Img = styled.img`
   width: 365px;
   height: 206px; 
   opacity: .8;
+  -webkit-box-reflect: below 0 linear-gradient(to bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.3));
   
   @media(max-width: 720px){
     width: 274px;

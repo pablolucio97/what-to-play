@@ -6,12 +6,19 @@ export const Footer = styled.footer`
   justify-content: flex-start;
   width: 100%;
   background: ${(props) => props.theme.colors.gray};
-
+  
   p,
   strong,
   span {
     color: #c8c8c8;
   }
+  
+  @media(max-width: 720px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 `;
 
 export const FooterContent = styled.div`
@@ -19,6 +26,12 @@ export const FooterContent = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 2rem;
+  @media(max-width: 720px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -26,7 +39,7 @@ export const LogoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin: 1rem auto;
   padding-right: 4rem;
   h1 {
     font-size: 1.64rem;
@@ -35,8 +48,7 @@ export const LogoContainer = styled.div`
 
     @media (max-width: 720px) {
       font-size: 1rem;
-      margin-top: 0.16rem;
-      margin-left: 0;
+      margin-left: 1rem auto;
     }
   }
 `;
@@ -45,10 +57,8 @@ export const Descriptionontainer = styled.div`
   width: 720px;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
 
   span {
-    margin: 1rem;
     font-size: 0.8rem;
     word-break: break-word;
     text-align: justify;
@@ -57,6 +67,21 @@ export const Descriptionontainer = styled.div`
   a{
     color: ${props => props.theme.colors.primary2}
   }
+
+  @media(max-width: 720px){
+    display: flex;
+    margin-top: 2rem;
+    margin-right: 4rem;
+    width: 80%;
+
+    span {
+    font-size: 0.72rem;
+    word-break: break-word;
+    text-align: justify;
+  }
+
+  }
+
 `;
 
 export const Divider = styled.div`
@@ -73,5 +98,18 @@ export const AuthorContainer = styled.div`
   margin: 1rem;
   p {
     font-size: .92rem;
+    margin-bottom: 1rem;
+  }
+  @media(max-width: 720px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem auto 0;
+    width: 80%;
+    p {
+    font-size: .56rem;
+    width: 80%;
+    text-align: center;
+  }
   }
 `;
