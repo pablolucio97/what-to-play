@@ -123,7 +123,7 @@ export default function Games({ games }) {
                                 <SearchInput
                                     search={searchGame}
                                     updateSearch={(e) => setSearchGame(e.target.value)}
-                                    placeholder='Buscar por um título, ex: (Valorant)'
+                                    placeholder='Buscar por um título'
                                 />
                                 {sugestedSearchGames.map(game => (
                                     <SugestedGameSearch
@@ -155,7 +155,6 @@ export default function Games({ games }) {
                         </Container>
                 }
             </main>
-            <p>{searchGame}</p>
             <Footer />
         </Container>
     )

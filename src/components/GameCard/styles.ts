@@ -13,10 +13,15 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
-
   @media (max-width: 720px) {
-    width: 278px;
-    height: 240px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  @media (max-width: 480px) {
+    width: 240px;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -28,7 +33,7 @@ export const Img = styled.img`
   height: 206px;
 
   @media (max-width: 720px) {
-    width: 274px;
+    width: 100%;
     height: 154px;
   }
 `;
@@ -68,6 +73,11 @@ export const PlayButton = styled.button`
   &:active {
     transform: scale(0.98);
   }
+   @media (max-width: 720px) {
+    width: 40vw;
+    height: 32px;
+    margin: .24rem auto;
+  }
 `;
 
 export const FavoriteButton = styled.button`
@@ -90,5 +100,10 @@ export const FavoriteButton = styled.button`
   
   &:active {
     transform: scale(0.98);
+  }
+   @media (max-width: 720px) {
+    width: 40vw;
+    height: 32px;
+    margin: .24rem auto;
   }
 `;

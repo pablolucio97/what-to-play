@@ -7,6 +7,7 @@ import GameSection from '../components/GameSection'
 import PrimaryButton from '../components/PrimaryButton'
 import { Container, Main, Banner, ButtonsContainer } from '../styles/pages/index'
 import Link from 'next/link'
+import CountUp from 'react-countup'
 
 
 export default function Home({ releasedGames }) {
@@ -31,7 +32,7 @@ export default function Home({ releasedGames }) {
         />
 
         <ButtonsContainer>
-          <h1>+ de 360 jogos disponíveis para jogar gratuitamente</h1>
+          <h1>+ de <CountUp end={360} duration={3} delay={1}/> jogos disponíveis para jogar gratuitamente</h1>
           <PrimaryButton
             label="Explorar todos os jogos"
             action={() => router.push('/games')}

@@ -74,6 +74,13 @@ export const UserContainer = styled.div`
     width: 80px;
     height: 32px;
   }
+  @media (max-width:1080px){
+    flex-direction: column;
+    width: 100vw;
+    button{
+      margin: -1.72rem 0 0 4rem;
+    }
+  }
 `;
 
 export const FavoritesContainer = styled.div`

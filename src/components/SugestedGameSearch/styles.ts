@@ -24,6 +24,7 @@ export const Container = styled.div`
     height: 48px;
     margin: 0.8rem 1rem 1rem;
   }
+
 `;
 
 export const ButtonsContainer = styled.div`
@@ -31,6 +32,10 @@ export const ButtonsContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 1rem;
+  @media (max-width: 720px){
+    flex-direction: column;
+    padding: 0;
+  }
 `;
 
 export const PlayButton = styled.button`
@@ -52,6 +57,12 @@ export const PlayButton = styled.button`
 
   &:active {
     transform: scale(0.98);
+  }
+  @media (max-width: 720px) {
+    height: 24px;
+    width: 88px;
+    margin-top: .72rem;
+    font-size: .68rem;
   }
 `;
 
@@ -75,5 +86,11 @@ export const FavoriteButton = styled.button`
 
   &:active {
     transform: scale(0.98);
+  }
+  @media (max-width: 720px) {
+    height: 24px;
+    width: 88px;
+    margin-top: .24rem;
+    font-size: .68rem;
   }
 `;
