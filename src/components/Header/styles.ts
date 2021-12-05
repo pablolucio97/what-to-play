@@ -15,6 +15,7 @@ export const Container = styled.header`
 
   @media (max-width: 720px) {
     flex-direction: column;
+    margin-bottom: -4rem;
     justify-content: center;
     padding-top: 1.14rem;
     align-items: center;
@@ -32,8 +33,8 @@ export const TitleContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-left: 0;
-    margin-top: .72rem;
-    margin-bottom: .48rem;
+    margin-top: 0.72rem;
+    margin-bottom: 0.48rem;
   }
 `;
 
@@ -43,7 +44,7 @@ export const Title = styled.h1`
   margin-left: 1rem;
 
   @media (max-width: 720px) {
-    font-size: .88rem;
+    font-size: 0.88rem;
     margin-top: 0.1rem;
     margin-left: 0;
   }

@@ -30,6 +30,38 @@ export const Container = styled.div`
   a {
     color: ${(props) => props.theme.colors.primary1};
   }
+
+  @media (max-width: 1080px) {
+    align-items: center;
+    main {
+      align-items: center;
+      width: 80%;
+ 
+      span {
+        button {
+          margin: 0 auto 4rem;
+          font-size: 0.92rem;
+        }
+      }
+      h3 {
+        margin: 2rem;
+        font-size: 0.92rem;
+        width: 80%;
+      }
+      h2 {
+        margin: 4rem auto -1.2rem;
+        font-size: 0.92rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    h2 {
+      font-size: 1.08rem;
+      width: 72%;
+      margin: 4rem auto -3.2rem;
+    }
+  }
 `;
 
 export const UserContainer = styled.div`
@@ -60,13 +92,13 @@ export const FavoritesContainer = styled.div`
     text-align: center;
     margin-bottom: 2rem;
   }
-  
-  p{
+
+  p {
     color: ${(props) => props.theme.colors.gray2};
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 300;
   }
-  
+
   button {
     width: 120px;
     height: 32px;

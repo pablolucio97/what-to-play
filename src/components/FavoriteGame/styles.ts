@@ -16,18 +16,17 @@ export const Container = styled.div`
     transform: scale(1.02);
   }
 
-  @media (max-width: 1240px) {
-    width: 600px;
+  @media (max-width: 180px) {
+    width: 640px;
   }
 
   @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    width: 240px;
-    height: 220px;
+    width: 76%;
     padding: 2rem;
+    margin: 1rem auto;
   }
 `;
 
@@ -40,13 +39,7 @@ export const SubContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @media (max-width: 720px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 240px;
-    height: 120px;
-  }
+  
 `;
 
 export const ButtonsContainer = styled.div`
@@ -54,11 +47,10 @@ export const ButtonsContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
   @media (max-width: 720px) {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 240px;
   }
 `;
 
@@ -71,6 +63,17 @@ export const DescriptioContainer = styled.div`
 
   h4{
     margin-bottom: 0;
+  }
+
+  @media (max-width: 1240px) {
+    display: flex;
+    align-items: center;
+    width: 40%;
+  }
+
+  @media(max-width: 720px) {
+    width: 80%;
+    text-align: center;
   }
 
 `
@@ -101,6 +104,9 @@ export const ButtonPlay = styled.button`
   &:active {
     transform: scale(0.98);
   }
+  @media(max-width: 720px) {
+   margin-top: .48rem;
+  }
   `;
 
 export const ButtonDislike = styled.button`
@@ -122,5 +128,8 @@ export const ButtonDislike = styled.button`
 
   &:active {
     transform: scale(0.98);
+  }
+  @media(max-width: 720px) {
+   margin-top: -.48rem;
   }
 `;

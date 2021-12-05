@@ -95,7 +95,7 @@ export const Banner = styled.div`
     };
     span{
       position: absolute;
-      bottom: 0;
+      bottom: 16%;
       left: 14%;
       text-align: center;
       width: 72%;

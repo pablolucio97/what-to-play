@@ -36,11 +36,11 @@ export default function DashBoard() {
     }
 
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (!session) {
             router.push('/games')
         }
-    }, [])
+    }, []) */
 
 
     useEffect(() => {
