@@ -78,6 +78,13 @@ export const UserContainer = styled.div`
     flex-direction: column;
     width: 100vw;
     button{
+      margin: -4rem 0 0 12rem;
+    }
+  }
+  @media (max-width:1080px){
+    flex-direction: column;
+    width: 100vw;
+    button{
       margin: -1.72rem 0 0 4rem;
     }
   }

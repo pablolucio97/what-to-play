@@ -24,7 +24,10 @@ export const Container = styled.div`
     height: 48px;
     margin: 0.8rem 1rem 1rem;
   }
-
+  @media (max-width: 720px){
+    width: 72vw;
+    justify-content: space-around;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
