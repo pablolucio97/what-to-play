@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers'
-import { query as q } from 'faunadb'
-import { fauna } from '../../../services/faunadb'
+import {signIn, session} from 'next-auth/client'
+import connectDb from '../../../services/mongo'
 
 export default NextAuth({
   providers: [
@@ -19,27 +19,26 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
- /*  callbacks: {
-    async signIn(user) {
-      const { email, name } = user;
+  callbacks:{
+    async signIn(user){
+      const {email, name}  =  user
+      await connectDb()
       try {
-        await fauna.query(
-          q.If(
-            q.Not(
-              q.Exists(
-                q.Match(q.Index("get_users_by_email"), q.Casefold(user.email))
-              )
-            ),
-            q.Create(q.Collection("users"), { data: { email, name } }),
-            q.Get(q.Match(q.Index("get_users_by_email"), q.Casefold(user.email)))
-          )
-        );
-
+        const {db} = await connectDb()
+        const userCollection = db.collection('users')
+        const hasUser = await userCollection.findOne({email})
+        if(!hasUser) {
+          const newUser = await userCollection.insertOne({
+            email,
+            name
+          })
+        }else{
+          await userCollection.findOne({email})
+        }
         return true
       } catch (error) {
-        console.log(error)
         return false
       }
     }
-  } */
+  }
 })

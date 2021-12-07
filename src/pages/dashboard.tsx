@@ -7,7 +7,7 @@ import SecondaryButton from '../components/SecondaryButton'
 import { Container, FavoritesContainer, UserContainer } from '../styles/pages/dashboard'
 import { useRouter } from 'next/router'
 import Modal from 'react-modal'
-import { signOut, useSession } from 'next-auth/client'
+import { signOut, useSession, getSession } from 'next-auth/client'
 import { api } from '../services/api'
 import FavoriteGame from '../components/FavoriteGame';
 import { gameCardTypes } from '../types/gameCardTypes'
@@ -20,7 +20,7 @@ export default function DashBoard() {
     const [session] = useSession()
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [favoriteGames, setFavoriteGames] = useState<gameCardTypes[]>([])
+    const [favoriteGames, setFavoriteGames] = useState([])
 
     function openModal() {
         setModalIsOpen(true)
@@ -31,21 +31,23 @@ export default function DashBoard() {
 
     async function getFavorites() {
         const { data } = await api.get('/favorites')
-        const favorites = data.favorites
+        //@ts-ignore
+        const favorites = data.favorites.favorites.map(fav =>fav)
+        console.log(favorites)
         setFavoriteGames(favorites)
     }
 
 
-/*     useEffect(() => {
+    useEffect(() => {
         if (!session) {
             router.push('/games')
         }
-    }, []) */
+    }, [])
 
 
     useEffect(() => {
         getFavorites()
-    }, [removeFavorite])
+    }, [])
 
 
     async function removeFavorite(id) {
@@ -101,7 +103,7 @@ export default function DashBoard() {
                                         removeFromFavorites={() => removeFavorite(game.id)}
                                     />
                                 ))
-                            }
+                            } 
                         </>
                     }
                 </FavoritesContainer>
@@ -138,9 +140,10 @@ export default function DashBoard() {
                     label='Sair'
                     action={() => signOut()}
                 />
-
             </Modal>
             <Footer />
         </Container>
     )
 }
+
+

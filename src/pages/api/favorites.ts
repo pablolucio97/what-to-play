@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import connectDb from "../../services/mongo";
 import connectToDatabase from "../../services/mongo";
+import {getSession} from 'next-auth/client'
 
 connectToDatabase();
 
@@ -13,26 +14,27 @@ export default async (
   switch (req.method) {
     case "POST":
       try {
-        const { id, title, thumbnail, freetogame_profile_url, short_description } = req.body;
-        const hasTitle = await db.collection("favorites").findOne({ id });
-        res.json({ error: "Game already exists in your lib." });
-        if (!hasTitle) {
-          const response = await db.collection("favorites").insertOne({
-            id,
-            title,
-            freetogame_profile_url,
-            thumbnail,
-            short_description
-          });
+        const session = await getSession()
+        const { id, title, thumbnail, freetogame_profile_url, short_description } = req.body
+        const hasFavorite = await db.collection('users').findOne({favorites: {id}})
+        res.json({ error: "Game already exists in your lib." })
+        if(!hasFavorite) {
+          const response = await db.collection('users').updateOne({ email: session.user.email }, {$push:
+            {favorites: {id, title, thumbnail, freetogame_profile_url, short_description},}
+          })
           res.status(200).json({ success: true, data: response });
+          console.log(response)
         }
-      } catch (error) {
+      } 
+      catch (error) {
         console.error(error);
       }
       break;
     case "GET":
       try {
-        const favorites = await db.collection("favorites").find().toArray();
+        const session = await getSession({req})
+        console.log(session.user.email)
+        const favorites = await db.collection("users").findOne({  email: session.user.email})
         res.status(200).json({ favorites });
       } catch (error) {
         console.log(error);
