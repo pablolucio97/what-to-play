@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers'
-import {signIn, session} from 'next-auth/client'
 import connectDb from '../../../services/mongo'
 
 export default NextAuth({
