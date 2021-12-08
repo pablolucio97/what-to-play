@@ -35,7 +35,9 @@ export default function Login() {
                     <h2>Faça seu login e comece a aventura</h2>
                     <span>Fazendo login você pode adicionar seu jogos aos favoritos, acompahar os jogos que você mais joga e muito mais.</span>
                     <GoogleLoginButton
-                    onClick={() => signIn('google')}
+                       onClick={() => signIn('google', {
+                        redirect: false
+                    })}
                     >
                         Fazer login com o Google 
                         <SiGoogle
@@ -43,7 +45,9 @@ export default function Login() {
                         />
                     </GoogleLoginButton>
                     <DiscordLoginButton
-                    onClick={() => signIn('discord')}
+                    onClick={() => signIn('discord', {
+                        redirect: false
+                    })}
                     >
                         Fazer login com o Discord 
                         <SiDiscord
@@ -51,7 +55,9 @@ export default function Login() {
                         />
                     </DiscordLoginButton>
                     <GitHubLoginButton
-                        onClick={() => signIn('github')}
+                          onClick={() => signIn('github', {
+                            redirect: false
+                        })}
                     >
                         Fazer login com o GitHub 
                         <SiGithub
