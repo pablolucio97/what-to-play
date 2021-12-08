@@ -17,7 +17,6 @@ export default async (
         const session = await getSession({req})
         const { id, title, thumbnail, freetogame_profile_url, short_description } = req.body
         const hasFavorite = await db.collection('users').findOne({favorites: {id}})
-        console.log(hasFavorite)
         res.json({ error: "Game already exists in your lib." })
         if(!hasFavorite) {
           const response = await db.collection('users').updateOne({ email: session.user.email }, {$push:
