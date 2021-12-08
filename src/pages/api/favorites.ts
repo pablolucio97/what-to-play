@@ -14,13 +14,14 @@ export default async (
   switch (req.method) {
     case "POST":
       try {
-        const session = await getSession()
+        const session = await getSession({req})
         const { id, title, thumbnail, freetogame_profile_url, short_description } = req.body
         const hasFavorite = await db.collection('users').findOne({favorites: {id}})
+        console.log(hasFavorite)
         res.json({ error: "Game already exists in your lib." })
         if(!hasFavorite) {
           const response = await db.collection('users').updateOne({ email: session.user.email }, {$push:
-            {favorites: {id, title, thumbnail, freetogame_profile_url, short_description},}
+            {favorites: {id, title, thumbnail, freetogame_profile_url, short_description}, upsert: true}
           })
           res.status(200).json({ success: true, data: response });
           console.log(response)
@@ -34,7 +35,7 @@ export default async (
       try {
         const session = await getSession({req})
         console.log(session.user.email)
-        const favorites = await db.collection("users").findOne({  email: session.user.email})
+        const favorites = await db.collection("users").findOne({ email: session.user.email})
         res.status(200).json({ favorites });
       } catch (error) {
         console.log(error);
@@ -43,9 +44,12 @@ export default async (
     case "DELETE":
       try {
         const { id } = req.body;
+        const session = await getSession({req})
         const deletedFavorite = await db
-          .collection("favorites")
-          .findOneAndDelete({ id });
+          .collection("users")
+          .updateOne({email: session.user.email}, {$pull: {
+            favorites: {id}
+          }});
         res.status(200).json(deletedFavorite);
       } catch (error) {
         console.log(error);

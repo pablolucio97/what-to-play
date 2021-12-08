@@ -47,7 +47,7 @@ export default function DashBoard() {
 
     useEffect(() => {
         getFavorites()
-    }, [])
+    }, [removeFavorite])
 
 
     async function removeFavorite(id) {
