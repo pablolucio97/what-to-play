@@ -53,6 +53,7 @@ export default async (
       } catch (error) {
         console.log(error);
       }
-    default:
+      break;
+      default:
   }
 };
