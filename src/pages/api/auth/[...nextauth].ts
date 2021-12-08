@@ -19,7 +19,7 @@ export default NextAuth({
     })
   ],
   callbacks:{
-    async signIn(user){
+    async signIn(user, account, profile){
       const {email, name}  =  user
       await connectDb()
       try {
