@@ -1,9 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import connectDb from "../../services/mongo";
-import connectToDatabase from "../../services/mongo";
 import { getSession } from "next-auth/client";
-
-connectToDatabase();
 
 export default async (
   req: NextApiRequest,
