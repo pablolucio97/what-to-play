@@ -19,7 +19,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
-  callbacks:{
+  /* callbacks:{
     async signIn(user, account, profile){
       try {
         const {email, name}  =  user
@@ -39,5 +39,5 @@ export default NextAuth({
         return false
       }
     }
-  }
+  } */
 })
