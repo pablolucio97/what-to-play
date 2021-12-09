@@ -1,6 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
+/* import { NextApiRequest, NextApiResponse } from "next";
 import connectDb from "../../../services/mongo";
-import connectToDatabase from "../../services/mongo";
 
 import { getSession } from "next-auth/client";
 const session = await getSession({ req });
@@ -18,4 +17,4 @@ if(!hasUser) {
   })
 }else{
   await hasUser.findOne({email})
-}
+} */
