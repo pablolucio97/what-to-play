@@ -6,11 +6,16 @@ export const GlobalStyles = createGlobalStyle`
         letter-spacing: .04rem;
     }
 
+    html{
+        font-size: 62.5%;
+    }
+
     body{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         overflow-x: hidden;
+        width: 100vw;
     }
 
     a{
