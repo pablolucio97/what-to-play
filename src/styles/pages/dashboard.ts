@@ -81,7 +81,7 @@ export const UserContainer = styled.div`
       margin: -4rem 0 0 12rem;
     }
   }
-  @media (max-width:1080px){
+  @media (max-width:720px){
     flex-direction: column;
     width: 100vw;
     button{
