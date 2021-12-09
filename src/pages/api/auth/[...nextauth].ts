@@ -19,10 +19,10 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
-  /* callbacks:{
+  callbacks:{
     async signIn(user, account, profile){
+      const {email, name}  =  user
       try {
-        const {email, name}  =  user
         await connectDb()
         const {db} = await connectDb()
         const hasUser = await db.collection('users').findOne({email})
@@ -39,5 +39,5 @@ export default NextAuth({
         return false
       }
     }
-  } */
+  }
 })
