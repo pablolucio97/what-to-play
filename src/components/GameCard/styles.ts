@@ -68,7 +68,7 @@ export const PlayButton = styled.button`
     transform: scale(0.98);
   }
    @media (max-width: 720px) {
-    width: 40vw;
+    width: 120px;
     height: 32px;
     margin: .24rem auto;
   }
@@ -96,7 +96,7 @@ export const FavoriteButton = styled.button`
     transform: scale(0.98);
   }
    @media (max-width: 720px) {
-    width: 40vw;
+    width: 120px;
     height: 32px;
     margin: .24rem auto;
   }
