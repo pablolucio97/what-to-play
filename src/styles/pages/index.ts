@@ -11,7 +11,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto 1rem;
+  margin: -2rem auto 1rem;
   max-width: 1200px;
 
   div {
@@ -23,7 +23,7 @@ export const Main = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 0 auto 2rem;
+      margin: -2rem auto 2rem;
     }
   }
 `;
@@ -89,7 +89,7 @@ export const Banner = styled.div`
       bottom: 32%;
       left: 18%;
       width: 64%;
-      font-size: 1.48rem;
+      font-size: 1.64rem;
       text-align: center;
       color: #333;
     };
@@ -98,6 +98,7 @@ export const Banner = styled.div`
       bottom: 16%;
       left: 14%;
       text-align: center;
+      font-size: .88rem;
       width: 72%;
       color: ${props => props.theme.colors.gray};
       a{

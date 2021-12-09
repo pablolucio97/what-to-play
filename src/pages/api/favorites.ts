@@ -15,6 +15,21 @@ export default async (
     case "POST":
       try {
         const session = await getSession({ req });
+        const {user} = session
+        const email = user.email
+        const name = user.email
+
+        const {dbConnect} = await connectDb()
+        const hasUser = await dbConnect.collection('users').findOne({email})
+
+        if(!hasUser) {
+          const newUser = await hasUser.insertOne({
+            email,
+            name
+          })
+        }else{
+          await hasUser.findOne({email})
+        }
         const {
           id,
           title,

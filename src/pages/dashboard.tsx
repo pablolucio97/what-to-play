@@ -31,7 +31,6 @@ export default function DashBoard() {
     async function getFavorites() {
         const { data } = await api.get('/favorites')
         const favorites = data.favorites.favorites.map(fav =>fav)
-        console.log(favorites)
         setFavoriteGames(favorites)
     }
 
