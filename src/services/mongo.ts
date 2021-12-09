@@ -1,11 +1,12 @@
 import { Db, MongoClient } from "mongodb";
 
 interface ConnectType{
-  db: Db;
+  dbConnect: Db;
   client: MongoClient
 }
 
 const uri = process.env.MONGODB_URI;
+const dbName = process.env.MONGODB_DB
 
 const client = new MongoClient(uri, {
   // @ts-ignore: Unreachable code error
@@ -15,6 +16,6 @@ const client = new MongoClient(uri, {
 
 export default async function connectDb() : Promise<ConnectType> {
   await client.connect();
-  const db = client.db("whattoplay");
-  return { db, client };
+  const dbConnect = client.db(dbName);
+  return { dbConnect, client };
 }

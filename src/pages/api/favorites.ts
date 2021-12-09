@@ -9,7 +9,7 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const { db } = await connectDb();
+  const { dbConnect } = await connectDb();
 
   switch (req.method) {
     case "POST":
@@ -22,12 +22,12 @@ export default async (
           freetogame_profile_url,
           short_description,
         } = req.body;
-        const hasFavorite = await db
+        const hasFavorite = await dbConnect
           .collection("users")
           .findOne({ favorites: { id } });
         res.json({ error: "Game already exists in your lib." });
         if (!hasFavorite) {
-          const response = await db.collection("users").updateOne(
+          const response = await dbConnect.collection("users").updateOne(
             { email: session.user.email },
             {
               $push: {
@@ -51,7 +51,7 @@ export default async (
     case "GET":
       try {
         const session = await getSession({ req });
-        const favorites = await db
+        const favorites = await dbConnect
           .collection("users")
           .findOne({ email: session.user.email });
         res.status(200).json({ favorites });
@@ -63,7 +63,7 @@ export default async (
       try {
         const { id } = req.body;
         const session = await getSession({ req });
-        const deletedFavorite = await db.collection("users").updateOne(
+        const deletedFavorite = await dbConnect.collection("users").updateOne(
           { email: session.user.email },
           {
             $pull: {

@@ -14,18 +14,12 @@ export const Container = styled.div`
   }
 
   @media (max-width: 720px) {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-  
-  @media (max-width: 480px) {
     width: 240px;
     display: flex;
     flex-direction: column;
     padding: 0;
   }
+  
 `;
 
 export const Img = styled.img`
