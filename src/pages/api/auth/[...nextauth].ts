@@ -18,26 +18,5 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
-  ],
-  callbacks:{
-    async signIn(user, account, profile){
-      const {email, name}  =  user
-      try {
-        await connectDb()
-        const {dbConnect} = await connectDb()
-        const hasUser = await dbConnect.collection('users').findOne({email})
-        if(!hasUser) {
-          const newUser = await hasUser.insertOne({
-            email,
-            name
-          })
-        }else{
-          await hasUser.findOne({email})
-        }
-        return true
-      } catch(error) {
-        return false
-      }
-    }
-  }
+  ]
 })
