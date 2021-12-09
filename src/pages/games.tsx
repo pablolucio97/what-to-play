@@ -44,9 +44,16 @@ export default function Games({ games }) {
         const foundGame = games.filter((game) => game.title.toLowerCase() === searchGame.toLowerCase());
         setSugestedSearchGames([...foundGame])
     }, [searchGame])
+    
+    async function hasUser(){
+        await api.get('/checkuser')
+    }
 
+    useEffect(() => {
+        hasUser()
+    }, [])
 
-    async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
+        async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
         try {
             await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail, short_description }).then(() => {
                 toast.success('Jogo adicionado à sua bilioteca.', {
