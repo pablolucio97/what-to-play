@@ -10,7 +10,6 @@ import Modal from 'react-modal'
 import { signOut, useSession, getSession } from 'next-auth/client'
 import { api } from '../services/api'
 import FavoriteGame from '../components/FavoriteGame';
-import { gameCardTypes } from '../types/gameCardTypes'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -32,6 +31,7 @@ export default function DashBoard() {
     async function getFavorites() {
         const { data } = await api.get('/favorites')
         const favorites = data.favorites.favorites.map(fav =>fav)
+        console.log(favorites)
         setFavoriteGames(favorites)
     }
 
