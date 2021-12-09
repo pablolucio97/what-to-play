@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers'
 import connectDb from '../../../services/mongo'
+import "regenerator-runtime/runtime"
 
 export default NextAuth({
   providers: [
