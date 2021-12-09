@@ -21,9 +21,9 @@ export default NextAuth({
   ],
   callbacks:{
     async signIn(user, account, profile){
-      const {email, name}  =  user
-      await connectDb()
       try {
+        const {email, name}  =  await user
+        await connectDb()
         const {db} = await connectDb()
         const userCollection = db.collection('users')
         const hasUser = await userCollection.findOne({email})
