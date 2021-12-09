@@ -24,7 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-WhatToPlay é uma plataforma web que permite o gerenciamento de jogos populares gratuitos. Você pode logar com sua conta do Google, Discord ou Github e jogar/favoritar seus jogos prediletos.
+WhatToPlay é uma plataforma web que permite o gerenciamento de jogos populares gratuitos. Você pode logar com sua conta do Google, Discord ou Github e jogar/favoritar seus jogos prediletos. Acesse a aplicação [clicando aqui.](https://what-to-play.vercel.app/)
 
 ## 📄 Licença
 
