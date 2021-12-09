@@ -22,18 +22,17 @@ export default NextAuth({
   callbacks:{
     async signIn(user, account, profile){
       try {
-        const {email, name}  =  await user
+        const {email, name}  =  user
         await connectDb()
         const {db} = await connectDb()
-        const userCollection = db.collection('users')
-        const hasUser = await userCollection.findOne({email})
+        const hasUser = await db.collection('users').findOne({email})
         if(!hasUser) {
-          const newUser = await userCollection.insertOne({
+          const newUser = await hasUser.insertOne({
             email,
             name
           })
         }else{
-          await userCollection.findOne({email})
+          await hasUser.findOne({email})
         }
         return true
       } catch (error) {
