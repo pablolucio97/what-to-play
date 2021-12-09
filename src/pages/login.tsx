@@ -12,7 +12,7 @@ import {
     GitHubLoginButton,
     GoogleLoginButton
 } from '../styles/pages/login'
-import "regenerator-runtime/runtime"
+
 
 
 
