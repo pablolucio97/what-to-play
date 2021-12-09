@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 
     html{
         font-size: 100%;
+        overflow-x: hidden;
     }
 
     body{
@@ -15,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         overflow-x: hidden;
-        width: 100vw;
     }
 
     a{

@@ -4,7 +4,7 @@ export const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%;
+  width: 100vw;
   background: ${(props) => props.theme.colors.gray};
   
   p,
