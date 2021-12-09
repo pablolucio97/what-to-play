@@ -43,8 +43,6 @@ export default async (
             }
           );
           res.status(200).json({ success: true, data: response });
-          //@ts-ignore
-          return true;
         }
       } catch (error) {
         console.error(error);
@@ -57,8 +55,6 @@ export default async (
           .collection("users")
           .findOne({ email: session.user.email });
         res.status(200).json({ favorites });
-        //@ts-ignore
-        return true;
       } catch (error) {
         console.log(error);
       }
@@ -76,8 +72,6 @@ export default async (
           }
         );
         res.status(200).json(deletedFavorite);
-        //@ts-ignore
-        return true;
       } catch (error) {
         console.log(error);
       }
