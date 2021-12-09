@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const LoginContainer = styled.div`
