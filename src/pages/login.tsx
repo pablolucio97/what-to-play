@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import { signIn, useSession } from 'next-auth/client'
+import { useRouter } from 'next/router'
+import {SiDiscord, SiGithub, SiGoogle} from 'react-icons/si'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {
@@ -9,10 +12,6 @@ import {
     GitHubLoginButton,
     GoogleLoginButton
 } from '../styles/pages/login'
-import { signIn } from 'next-auth/client'
-import {useSession} from 'next-auth/client'
-import { useRouter } from 'next/router'
-import {SiDiscord, SiGithub, SiGoogle} from 'react-icons/si'
 
 
 
@@ -35,9 +34,7 @@ export default function Login() {
                     <h2>Faça seu login e comece a aventura</h2>
                     <span>Fazendo login você pode adicionar seu jogos aos favoritos, acompahar os jogos que você mais joga e muito mais.</span>
                     <GoogleLoginButton
-                       onClick={() => signIn('google', {
-                        redirect: false
-                    })}
+                       onClick={() => signIn('google')}
                     >
                         Fazer login com o Google 
                         <SiGoogle
@@ -45,9 +42,7 @@ export default function Login() {
                         />
                     </GoogleLoginButton>
                     <DiscordLoginButton
-                    onClick={() => signIn('discord', {
-                        redirect: false
-                    })}
+                    onClick={() => signIn('discord')}
                     >
                         Fazer login com o Discord 
                         <SiDiscord
@@ -55,9 +50,7 @@ export default function Login() {
                         />
                     </DiscordLoginButton>
                     <GitHubLoginButton
-                          onClick={() => signIn('github', {
-                            redirect: false
-                        })}
+                          onClick={() => signIn('github')}
                     >
                         Fazer login com o GitHub 
                         <SiGithub
