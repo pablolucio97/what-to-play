@@ -35,7 +35,7 @@ export default NextAuth({
           await hasUser.findOne({email})
         }
         return true
-      } catch (error) {
+      } catch {
         return false
       }
     }
