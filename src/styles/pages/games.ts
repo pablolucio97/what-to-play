@@ -24,6 +24,10 @@ export const Container = styled.div`
       margin: 0 0.24rem;
       font-weight: 600;
     }
+    @media (max-width: 1080px) {
+        margin-left: 2.24rem;
+        text-align: center;
+    }
   }
 
   @media (max-width: 720px) {

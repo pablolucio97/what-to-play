@@ -12,4 +12,7 @@ export const Input = styled.input`
     margin: 2rem auto;
     box-shadow: rgba(10, 10, 10, 0.1) 0px 8px 16px -2px, rgba(10, 10, 10, 0.02) 0px 0px 0px 1px;
     transition: all .3s ease-in-out;
+    @media (max-width: 1080px) {
+        margin-left: 2.24rem;
+    }
 `
