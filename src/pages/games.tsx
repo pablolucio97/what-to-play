@@ -23,6 +23,7 @@ import { api } from '../services/api'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import BackToTopButton from '../components/BackToTopButton';
 
 export default function Games({ games }) {
 
@@ -76,6 +77,7 @@ export default function Games({ games }) {
     return (
         <Container>
             <Header />
+            <div id="top"></div>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -132,6 +134,7 @@ export default function Games({ games }) {
                                     updateSearch={(e) => setSearchGame(e.target.value)}
                                     placeholder='Buscar por um título'
                                 />
+                                <BackToTopButton />
                                 {sugestedSearchGames.map(game => (
                                     <SugestedGameSearch
                                         id={game.id}
