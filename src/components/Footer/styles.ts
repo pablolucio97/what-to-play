@@ -26,6 +26,11 @@ export const FooterContent = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 2rem;
+
+  @media(min-width: 720px){
+    justify-content: center;
+  }
+
   @media(max-width: 720px){
     display: flex;
     flex-direction: column;
@@ -46,6 +51,11 @@ export const LogoContainer = styled.div`
     color: ${(props) => props.theme.colors.primary2};
     margin-left: 1rem;
 
+    @media (max-width: 1080px) {
+      font-size: 1rem;
+      margin-right: 3.2rem;
+    }
+
     @media (max-width: 720px) {
       font-size: 1rem;
       margin-left: 1rem auto;
@@ -57,16 +67,23 @@ export const Descriptionontainer = styled.div`
   width: 720px;
   align-items: center;
   justify-content: center;
-  margin-left: 14%;
-
+  margin-left: 4%;
+  
   span {
     font-size: 0.8rem;
     word-break: break-word;
     text-align: justify;
   }
-
+  
   a{
     color: ${props => props.theme.colors.primary2}
+  }
+  
+  @media (min-width: 1080px) {
+    margin-left: 32%;
+  }
+  @media (min-width: 720px) {
+    margin-left: 12%;
   }
 
   @media(max-width: 720px){
