@@ -60,6 +60,7 @@ export const GamesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
+  margin-left: .32rem;
   @media (max-width: 1080px) {
     width: 100vw;
     flex-direction: column;
@@ -72,6 +73,14 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  p{
+    margin-top: -.14rem;
+    margin-left: 1.40rem;
+    color: ${(props) => props.theme.colors.primary1};
+    font-weight: bold;
+  }
+
   @media (max-width: 1080px) {
     width: 72vw;
     margin-left: 6.4rem;

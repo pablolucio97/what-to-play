@@ -57,6 +57,7 @@ export const Descriptionontainer = styled.div`
   width: 720px;
   align-items: center;
   justify-content: center;
+  margin-left: 14%;
 
   span {
     font-size: 0.8rem;

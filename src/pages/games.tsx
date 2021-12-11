@@ -45,8 +45,8 @@ export default function Games({ games }) {
         const foundGame = games.filter((game) => game.title.toLowerCase() === searchGame.toLowerCase());
         setSugestedSearchGames([...foundGame])
     }, [searchGame])
-    
-    async function hasUser(){
+
+    async function hasUser() {
         await api.get('/checkuser')
     }
 
@@ -54,7 +54,7 @@ export default function Games({ games }) {
         hasUser()
     }, [])
 
-        async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
+    async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
         try {
             await api.post('/favorites', { id, title, freetogame_profile_url, thumbnail, short_description }).then(() => {
                 toast.success('Jogo adicionado à sua bilioteca.', {
@@ -146,6 +146,8 @@ export default function Games({ games }) {
                                         addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail, game.short_description)}
                                     />
                                 ))}
+                                <p>{searchGame.length > 0 &&
+                                    sugestedSearchGames.length < 1 && `Buscando por ${searchGame}...`}</p>
                             </SearchContainer>
                             <GamesContainer>
                                 {

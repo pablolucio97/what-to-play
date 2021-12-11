@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  width: 96.2%;
+  width: 92.4%;
   height: 72px;
   background: ${(props) => props.theme.colors.gray};
   padding: 0.4rem;
   transition: all 0.3s ease;
-  margin: 0 auto 1rem;
+  margin: 0 auto;
 
   &:hover {
     background: ${(props) => props.theme.colors.gray3};
@@ -24,9 +24,12 @@ export const Container = styled.div`
     height: 48px;
     margin: 0.8rem 1rem 1rem;
   }
+  @media (max-width: 1080px){
+    width: 97%;
+    margin-left: 2.24rem;
+  }
   @media (max-width: 720px){
-    width: 72vw;
-    justify-content: space-around;
+    margin-left: 2.48rem;
   }
 `;
 
@@ -96,4 +99,8 @@ export const FavoriteButton = styled.button`
     margin-top: .24rem;
     font-size: .68rem;
   }
+  @media (max-width: 1080px) {
+        margin-left: 2.24rem;
+        text-align: center;
+    }
 `;
