@@ -24,6 +24,7 @@ import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import BackToTopButton from '../components/BackToTopButton';
+import Head from 'next/head';
 
 export default function Games({ games }) {
 
@@ -76,6 +77,9 @@ export default function Games({ games }) {
 
     return (
         <Container>
+            <Head>
+                <title>WhatToPlay | Games</title>
+            </Head>
             <Header />
             <div id="top"></div>
             <ToastContainer

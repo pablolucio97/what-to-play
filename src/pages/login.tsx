@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import {SiDiscord, SiGithub, SiGoogle} from 'react-icons/si'
+import { SiDiscord, SiGithub, SiGoogle } from 'react-icons/si'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {
@@ -12,6 +12,7 @@ import {
     GitHubLoginButton,
     GoogleLoginButton
 } from '../styles/pages/login'
+import Head from 'next/head';
 
 
 
@@ -29,35 +30,38 @@ export default function Login() {
 
     return (
         <Container>
+            <Head>
+                <title>WhatToPlay | Login</title>
+            </Head>
             <Header />
             <main>
                 <LoginContainer>
                     <h2>Faça seu login e comece a aventura</h2>
                     <span>Fazendo login você pode adicionar seu jogos aos favoritos, acompahar os jogos que você mais joga e muito mais.</span>
                     <GoogleLoginButton
-                       onClick={() => signIn('google',{
-                           redirect: true
-                       })}
+                        onClick={() => signIn('google', {
+                            redirect: true
+                        })}
                     >
-                        Fazer login com o Google 
+                        Fazer login com o Google
                         <SiGoogle
-                            style={{marginLeft: 8, fontSize: 20}}
+                            style={{ marginLeft: 8, fontSize: 20 }}
                         />
                     </GoogleLoginButton>
                     <DiscordLoginButton
-                    onClick={() => signIn('discord')}
+                        onClick={() => signIn('discord')}
                     >
-                        Fazer login com o Discord 
+                        Fazer login com o Discord
                         <SiDiscord
-                            style={{marginLeft: 8, fontSize: 20}}
+                            style={{ marginLeft: 8, fontSize: 20 }}
                         />
                     </DiscordLoginButton>
                     <GitHubLoginButton
-                          onClick={() => signIn('github')}
+                        onClick={() => signIn('github')}
                     >
-                        Fazer login com o GitHub 
+                        Fazer login com o GitHub
                         <SiGithub
-                            style={{marginLeft: 8, fontSize: 20}}
+                            style={{ marginLeft: 8, fontSize: 20 }}
                         />
                     </GitHubLoginButton>
                 </LoginContainer>
