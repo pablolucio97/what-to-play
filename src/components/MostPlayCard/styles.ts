@@ -5,30 +5,30 @@ export const Container = styled.div`
   width: 368px;
   height: 244.5px;
   border-radius: 4px;
-  margin:  .4rem;
+  margin: 0.4rem;
   margin-top: 1rem;
   transition: all 0.2s ease-in-out;
-  
+
   &:hover {
     transform: scale(1.02);
     cursor: pointer;
   }
-  
+
   @media (max-width: 1240px) {
     width: 640px;
     display: flex;
     justify-content: center;
     margin: 0 auto 1rem;
-    &:after{
-      content:'';
+    &:after {
+      content: "";
       width: 620px;
       height: 100%;
-      background: ${props => props.theme.colors.gray};
+      background: ${(props) => props.theme.colors.gray};
       margin-top: 1rem;
       border-radius: 0 4px 4px 0;
     }
   }
-  
+
   @media (max-width: 720px) {
     width: 240px;
     display: flex;
@@ -36,8 +36,7 @@ export const Container = styled.div`
     margin-top: -2rem;
     margin: 0 auto -3rem;
   }
-  
-  `;
+`;
 
 export const Img = styled.img`
   width: 365px;
@@ -45,12 +44,12 @@ export const Img = styled.img`
   z-index: -1;
   filter: opacity(0.75);
   border-radius: 4px;
-  
+
   @media (max-width: 1240px) {
     width: 100%;
     height: 100%;
     margin-top: 1rem;
-    border-radius: 4px 0 0  4px;
+    border-radius: 4px 0 0 4px;
   }
 
   @media (max-width: 720px) {
@@ -87,7 +86,7 @@ export const ButtonAddFav = styled.button`
   &:active {
     transform: scale(0.98);
   }
-  &:disabled{
+  &:disabled {
     background: #111;
     cursor: not-allowed;
   }
@@ -129,17 +128,14 @@ export const ButtonPlay = styled.button`
   &:active {
     transform: scale(0.98);
   }
-  
+
   @media (max-width: 1240px) {
     bottom: 6.4rem;
     right: 2.4rem;
   }
-  
-    @media (max-width: 720px) {
-      bottom: 7rem;
-      right: -1rem;
-    }
 
+  @media (max-width: 720px) {
+    bottom: 7rem;
+    right: -1rem;
+  }
 `;
-
-

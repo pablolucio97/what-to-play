@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import connectDb from "../../services/mongo";
 import { getSession } from "next-auth/client";
+
+import connectDb from "../../services/mongo";
 
 export default async (
   req: NextApiRequest,
@@ -14,7 +15,6 @@ export default async (
         const session = await getSession({ req });
         const { user } = session;
         const email = user.email;
-
 
         const { dbConnect } = await connectDb();
 

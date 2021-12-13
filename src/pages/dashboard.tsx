@@ -1,18 +1,24 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import UserInfo from '../components/UserInfo';
-import PrimaryButton from '../components/PrimaryButton'
-import SecondaryButton from '../components/SecondaryButton'
-import { Container, FavoritesContainer, UserContainer } from '../styles/pages/dashboard'
-import { useRouter } from 'next/router'
-import Modal from 'react-modal'
-import { signOut, useSession, getSession } from 'next-auth/client'
-import { api } from '../services/api'
-import FavoriteGame from '../components/FavoriteGame';
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import Head from 'next/head';
+import "react-toastify/dist/ReactToastify.css";
+
+import { signOut, useSession } from "next-auth/client";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import { toast, ToastContainer } from "react-toastify";
+
+import FavoriteGame from "../components/FavoriteGame";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import PrimaryButton from "../components/PrimaryButton";
+import SecondaryButton from "../components/SecondaryButton";
+import UserInfo from "../components/UserInfo";
+import { api } from "../services/api";
+import {
+  Container,
+  FavoritesContainer,
+  UserContainer
+} from "../styles/pages/dashboard";
 
 export default function DashBoard() {
 

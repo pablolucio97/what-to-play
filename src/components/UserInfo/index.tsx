@@ -1,8 +1,9 @@
-import React from 'react'
-import { UserContainer, Avatar, UserName, UserInfoContainer } from './styles'
-import { UserProps } from '../../types/userTypes'
+import React from "react";
 
-export default function UserInfo({ avatar, name, id, children }: UserProps){
+import { UserProps } from "../../types/userTypes";
+import { Avatar, UserContainer, UserInfoContainer, UserName } from "./styles";
+
+export default function UserInfo({ avatar, name, id, children }: UserProps) {
 
     return (
         <UserContainer >

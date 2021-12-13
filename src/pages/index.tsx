@@ -1,20 +1,24 @@
-import React from 'react'
-import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import GameSection from '../components/GameSection'
-import PrimaryButton from '../components/PrimaryButton'
-import { Container, Main, Banner, ButtonsContainer } from '../styles/pages/index'
-import Link from 'next/link'
-import CountUp from 'react-countup'
-import  Head  from 'next/head'
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import CountUp from "react-countup";
 
+import Footer from "../components/Footer";
+import GameSection from "../components/GameSection";
+import Header from "../components/Header";
+import PrimaryButton from "../components/PrimaryButton";
+import {
+  Banner,
+  ButtonsContainer,
+  Container,
+  Main
+} from "../styles/pages/index";
 
 export default function Home({ releasedGames }) {
 
   const router = useRouter()
-
   return (
     <Container>
       <Head>

@@ -1,4 +1,3 @@
-import { Descriptionontainer } from './../Footer/styles';
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -39,7 +38,6 @@ export const SubContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
 `;
 
 export const ButtonsContainer = styled.div`
@@ -61,7 +59,7 @@ export const DescriptioContainer = styled.div`
   word-wrap: break-word;
   width: 640px;
 
-  h4{
+  h4 {
     margin-bottom: 0;
   }
 
@@ -71,17 +69,15 @@ export const DescriptioContainer = styled.div`
     width: 40%;
   }
 
-  @media(max-width: 720px) {
+  @media (max-width: 720px) {
     width: 80%;
     text-align: center;
   }
-
-`
+`;
 
 export const GameTitle = styled.h4`
   font-size: 1.12rem;
   color: ${(props) => props.theme.colors.secondary1};
-
 `;
 export const ButtonPlay = styled.button`
   display: flex;
@@ -95,19 +91,19 @@ export const ButtonPlay = styled.button`
   border: 1px solid ${(props) => props.theme.colors.primary1};
   transition: all 0.3s ease-in-out;
   outline: none;
-  
+
   &:hover {
     background: ${(props) => props.theme.colors.primary1};
     cursor: pointer;
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
-  @media(max-width: 720px) {
-   margin-top: .48rem;
+  @media (max-width: 720px) {
+    margin-top: 0.48rem;
   }
-  `;
+`;
 
 export const ButtonDislike = styled.button`
   display: flex;
@@ -120,7 +116,7 @@ export const ButtonDislike = styled.button`
   background: ${(props) => props.theme.colors.secondary1};
   transition: all 0.3s ease-in-out;
   outline: none;
-  
+
   &:hover {
     background: ${(props) => props.theme.colors.secondary2};
     cursor: pointer;
@@ -129,7 +125,7 @@ export const ButtonDislike = styled.button`
   &:active {
     transform: scale(0.98);
   }
-  @media(max-width: 720px) {
-   margin-top: -.48rem;
+  @media (max-width: 720px) {
+    margin-top: -0.48rem;
   }
 `;

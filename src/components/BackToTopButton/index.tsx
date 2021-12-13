@@ -1,19 +1,19 @@
 import React from 'react';
-import {Button} from './styles'
-import {BiUpArrow} from 'react-icons/bi'
+import { Button } from './styles'
+import { BiUpArrow } from 'react-icons/bi'
 
-export default function BackToTopButton(){
+export default function BackToTopButton() {
 
 
-    function backToTop(){
+    function backToTop() {
         const getTarget = document.getElementById('top')
         getTarget.scrollIntoView()
     }
 
-    
-    return(
+
+    return (
         <Button onClick={backToTop}>
-            <BiUpArrow size={24}/>
+            <BiUpArrow size={24} />
         </Button>
     )
 }

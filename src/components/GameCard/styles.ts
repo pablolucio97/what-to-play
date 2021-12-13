@@ -19,7 +19,6 @@ export const Container = styled.div`
     flex-direction: column;
     padding: 0;
   }
-  
 `;
 
 export const Img = styled.img`
@@ -32,19 +31,18 @@ export const Img = styled.img`
   }
 `;
 
-
 export const ButtonsContainer = styled.div`
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-`
+`;
 
 export const GameTitle = styled.h3`
   font-size: 1rem;
   margin-top: 1rem;
-  `;
+`;
 
 export const PlayButton = styled.button`
   display: flex;
@@ -56,21 +54,21 @@ export const PlayButton = styled.button`
   color: ${(props) => props.theme.colors.gray2};
   background: ${(props) => props.theme.colors.primary2};
   border: 1px solid ${(props) => props.theme.colors.primary1};
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   outline: none;
-  
+
   &:hover {
     background: ${(props) => props.theme.colors.primary1};
     cursor: pointer;
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
-   @media (max-width: 720px) {
+  @media (max-width: 720px) {
     width: 120px;
     height: 32px;
-    margin: .24rem auto;
+    margin: 0.24rem auto;
   }
 `;
 
@@ -85,19 +83,19 @@ export const FavoriteButton = styled.button`
   background: ${(props) => props.theme.colors.secondary2};
   border: 1px solid ${(props) => props.theme.colors.secondary1};
   outline: none;
-  transition: all .3s ease-in-out;
-  
+  transition: all 0.3s ease-in-out;
+
   &:hover {
     background: ${(props) => props.theme.colors.secondary1};
     cursor: pointer;
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
-   @media (max-width: 720px) {
+  @media (max-width: 720px) {
     width: 120px;
     height: 32px;
-    margin: .24rem auto;
+    margin: 0.24rem auto;
   }
 `;

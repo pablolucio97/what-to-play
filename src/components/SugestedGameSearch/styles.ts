@@ -24,11 +24,11 @@ export const Container = styled.div`
     height: 48px;
     margin: 0.8rem 1rem 1rem;
   }
-  @media (max-width: 1080px){
+  @media (max-width: 1080px) {
     width: 97%;
     margin-left: 2.24rem;
   }
-  @media (max-width: 720px){
+  @media (max-width: 720px) {
     margin-left: 0.72rem;
   }
   @media (max-width: 340px) {
@@ -41,7 +41,7 @@ export const ButtonsContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 1rem;
-  @media (max-width: 720px){
+  @media (max-width: 720px) {
     flex-direction: column;
     padding: 0;
   }
@@ -70,8 +70,8 @@ export const PlayButton = styled.button`
   @media (max-width: 720px) {
     height: 24px;
     width: 88px;
-    margin-top: .72rem;
-    font-size: .68rem;
+    margin-top: 0.72rem;
+    font-size: 0.68rem;
   }
 `;
 
@@ -99,11 +99,11 @@ export const FavoriteButton = styled.button`
   @media (max-width: 720px) {
     height: 24px;
     width: 88px;
-    margin-top: .24rem;
-    font-size: .68rem;
+    margin-top: 0.24rem;
+    font-size: 0.68rem;
   }
   @media (max-width: 1080px) {
-        margin-left: 2.24rem;
-        text-align: center;
-    }
+    margin-left: 2.24rem;
+    text-align: center;
+  }
 `;

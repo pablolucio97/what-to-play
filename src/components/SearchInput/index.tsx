@@ -1,6 +1,6 @@
-import React, { SetStateAction, Dispatch } from 'react';
-import { Input } from './styles'
+import React, { Dispatch, SetStateAction } from "react";
 
+import { Input } from "./styles";
 
 type SearchInputProps = {
     placeholder: string

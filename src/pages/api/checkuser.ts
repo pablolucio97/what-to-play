@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
+
 import connectDb from "../../services/mongo";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -23,6 +24,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       console.log("Method not supported");
     }
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
 };

@@ -1,5 +1,5 @@
-import { Container, ButtonAddFav, ButtonPlay, Img, } from './styles'
-import { gameCardTypes } from '../../types/gameCardTypes'
+import { gameCardTypes } from "../../types/gameCardTypes";
+import { ButtonAddFav, ButtonPlay, Container, Img } from "./styles";
 
 const Index = ({
     id,
@@ -9,8 +9,6 @@ const Index = ({
     actionLabelText,
     isInactiveButton
 }: gameCardTypes) => {
-
-
     return (
         <Container key={id} >
             <Img src={thumbnail} />

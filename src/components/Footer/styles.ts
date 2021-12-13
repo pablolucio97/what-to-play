@@ -6,19 +6,18 @@ export const Footer = styled.footer`
   justify-content: flex-start;
   width: 100vw;
   background: ${(props) => props.theme.colors.gray};
-  
+
   p,
   strong,
   span {
     color: #c8c8c8;
   }
-  
-  @media(max-width: 720px){
+
+  @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
 `;
 
 export const FooterContent = styled.div`
@@ -27,11 +26,11 @@ export const FooterContent = styled.div`
   width: 100%;
   padding: 0 2rem;
 
-  @media(min-width: 720px){
+  @media (min-width: 720px) {
     justify-content: center;
   }
 
-  @media(max-width: 720px){
+  @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,17 +65,17 @@ export const Descriptionontainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 4%;
-  
+
   span {
     font-size: 0.8rem;
     word-break: break-word;
     text-align: justify;
   }
-  
-  a{
-    color: ${props => props.theme.colors.primary2}
+
+  a {
+    color: ${(props) => props.theme.colors.primary2};
   }
-  
+
   @media (min-width: 1080px) {
     margin-left: 32%;
   }
@@ -84,20 +83,18 @@ export const Descriptionontainer = styled.div`
     margin-left: 12%;
   }
 
-  @media(max-width: 720px){
+  @media (max-width: 720px) {
     display: flex;
     margin-top: 2rem;
     margin-right: 4rem;
     width: 80%;
 
     span {
-    font-size: 0.72rem;
-    word-break: break-word;
-    text-align: justify;
+      font-size: 0.72rem;
+      word-break: break-word;
+      text-align: justify;
+    }
   }
-
-  }
-
 `;
 
 export const Divider = styled.div`
@@ -113,19 +110,19 @@ export const AuthorContainer = styled.div`
   align-items: center;
   margin: 1rem;
   p {
-    font-size: .92rem;
+    font-size: 0.92rem;
     margin-bottom: 1rem;
   }
-  @media(max-width: 720px){
+  @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1rem auto 0;
     width: 80%;
     p {
-    font-size: .56rem;
-    width: 80%;
-    text-align: center;
-  }
+      font-size: 0.56rem;
+      width: 80%;
+      text-align: center;
+    }
   }
 `;

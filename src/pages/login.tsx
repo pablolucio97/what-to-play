@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
-import { signIn, useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import { SiDiscord, SiGithub, SiGoogle } from 'react-icons/si'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { signIn, useSession } from "next-auth/client";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { SiDiscord, SiGithub, SiGoogle } from "react-icons/si";
+
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import {
-    Container,
-    LoginContainer,
-    Img,
-    DiscordLoginButton,
-    GitHubLoginButton,
-    GoogleLoginButton
-} from '../styles/pages/login'
-import Head from 'next/head';
-
-
-
+  Container,
+  DiscordLoginButton,
+  GitHubLoginButton,
+  GoogleLoginButton,
+  Img,
+  LoginContainer
+} from "../styles/pages/login";
 
 export default function Login() {
 

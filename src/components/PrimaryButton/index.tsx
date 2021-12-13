@@ -9,5 +9,5 @@ type ButtonProps = {
 
 export default function PrimaryButton({ label, action }: ButtonProps) {
     const router = useRouter()
-    return <Button onClick={action}>{ label }</ Button>
+    return <Button onClick={action}>{label}</ Button>
 }

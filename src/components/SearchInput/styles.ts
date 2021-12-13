@@ -26,7 +26,7 @@ export const Input = styled.input`
   }
 
   @media (max-width: 359px) {
-    margin-left: .8rem;
+    margin-left: 0.8rem;
   }
 
   &:focus {

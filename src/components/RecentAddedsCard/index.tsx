@@ -15,7 +15,7 @@ const Index = ({ id, thumbnail, short_description, freetogame_profile_url, title
                 </InfoSubContainer>
             </InfoContainer>
             <FaWindows size={24} />
-            <Button onClick={() => {window.open(freetogame_profile_url)}}>
+            <Button onClick={() => { window.open(freetogame_profile_url) }}>
                 Free
             </Button>
         </Container>

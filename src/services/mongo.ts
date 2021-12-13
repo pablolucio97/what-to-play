@@ -9,7 +9,7 @@ const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB
 
 const client = new MongoClient(uri, {
-  // @ts-ignore: Unreachable code error
+  // @ts-ignore
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

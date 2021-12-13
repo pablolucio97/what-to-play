@@ -1,14 +1,14 @@
 import React from 'react'
-import {Container, Img} from './styles'
-import {gameCardTypes} from '../../types/gameCardTypes'
+import { Container, Img } from './styles'
+import { gameCardTypes } from '../../types/gameCardTypes'
 
 const ImageGameCard = ({
     id,
     thumbnail
-} : gameCardTypes) => {
+}: gameCardTypes) => {
     return (
         <Container key={id}>
-            <Img src={thumbnail}/>
+            <Img src={thumbnail} />
         </Container>
     )
 }
