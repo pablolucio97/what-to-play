@@ -23,7 +23,7 @@ export const Main = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: -2rem auto 2rem;
+      margin: 0 auto 2rem;
     }
   }
 `;

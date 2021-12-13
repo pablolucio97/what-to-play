@@ -29,7 +29,10 @@ export const Container = styled.div`
     margin-left: 2.24rem;
   }
   @media (max-width: 720px){
-    margin-left: 2.48rem;
+    margin-left: 0.72rem;
+  }
+  @media (max-width: 340px) {
+    margin-left: 1.2rem;
   }
 `;
 

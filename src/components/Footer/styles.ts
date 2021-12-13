@@ -53,12 +53,10 @@ export const LogoContainer = styled.div`
 
     @media (max-width: 1080px) {
       font-size: 1rem;
-      margin-right: 3.2rem;
     }
 
     @media (max-width: 720px) {
       font-size: 1rem;
-      margin-left: 1rem auto;
     }
   }
 `;
