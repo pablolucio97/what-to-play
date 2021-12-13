@@ -16,6 +16,19 @@ export const Input = styled.input`
   @media (max-width: 1080px) {
     margin-left: 2.24rem;
   }
+
+  @media (max-width: 1080px) {
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 359px) {
+    margin-left: .8rem;
+  }
+
   &:focus {
     outline: 1px solid ${(props) => props.theme.colors.gray3};
   }
