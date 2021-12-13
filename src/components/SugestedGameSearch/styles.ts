@@ -102,8 +102,4 @@ export const FavoriteButton = styled.button`
     margin-top: 0.24rem;
     font-size: 0.68rem;
   }
-  @media (max-width: 1080px) {
-    margin-left: 2.24rem;
-    text-align: center;
-  }
 `;
