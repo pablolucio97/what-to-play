@@ -51,6 +51,8 @@ export default function Games({ games }) {
                 }
             });
             setSugestedSearchGames(foundGame.slice(0,5))
+        }else{
+            setSugestedSearchGames([])
         }
        
     }
