@@ -1,30 +1,31 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import GameCard from '../components/GameCard'
+import "react-toastify/dist/ReactToastify.css";
+
+import { GetStaticProps } from "next";
+import { useSession } from "next-auth/client";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+
+import BackToTopButton from "../components/BackToTopButton";
+import Footer from "../components/Footer";
+import GameCard from "../components/GameCard";
+import Header from "../components/Header";
+import PrimaryButton from "../components/PrimaryButton";
+import RingLoaderComponent from "../components/RingLoader";
+import SearchInput from "../components/SearchInput";
+import SugestedGameSearch from "../components/SugestedGameSearch";
+import UserInfo from "../components/UserInfo";
+import { getGames, useGamesList } from "../hooks/useGamesList";
+import { api } from "../services/api";
 import {
-    Container,
-    LoadingContainer,
-    SearchContainer,
-    GamesContainer,
-    UserContainer
-} from '../styles/pages/games'
-import { GetStaticProps } from 'next'
-import { getGames, useGamesList } from '../hooks/useGamesList'
-import RingLoaderComponent from '../components/RingLoader'
-import { useState } from 'react'
-import SearchInput from '../components/SearchInput'
-import SugestedGameSearch from '../components/SugestedGameSearch'
-import { useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import PrimaryButton from '../components/PrimaryButton';
-import UserInfo from '../components/UserInfo';
-import { api } from '../services/api'
-import Link from 'next/link'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import BackToTopButton from '../components/BackToTopButton';
-import Head from 'next/head';
+  Container,
+  GamesContainer,
+  LoadingContainer,
+  SearchContainer,
+  UserContainer
+} from "../styles/pages/games";
 
 export default function Games({ games }) {
 
@@ -42,10 +43,17 @@ export default function Games({ games }) {
     const [sugestedSearchGames, setSugestedSearchGames] = useState([])
 
 
-    useEffect(() => {
-        const foundGame = games.filter((game) => game.title.toLowerCase() === searchGame.toLowerCase());
-        setSugestedSearchGames([...foundGame])
-    }, [searchGame])
+    function handleSearchGameByTile() {
+        if(searchGame){
+            const foundGame = games.filter((game) => {
+                if (game.title.toLowerCase().includes(searchGame.toLowerCase())) {
+                    return game
+                }
+            });
+            setSugestedSearchGames(foundGame.slice(0,5))
+        }
+       
+    }
 
     async function hasUser() {
         await api.get('/checkuser')
@@ -54,6 +62,10 @@ export default function Games({ games }) {
     useEffect(() => {
         hasUser()
     }, [])
+
+    useEffect(() => {
+        handleSearchGameByTile()
+    }, [searchGame])
 
     async function newFavorite(id, title, freetogame_profile_url, thumbnail, short_description) {
         try {
@@ -150,8 +162,6 @@ export default function Games({ games }) {
                                         addToFavorites={() => newFavorite(game.id, game.title, game.freetogame_profile_url, game.thumbnail, game.short_description)}
                                     />
                                 ))}
-                                <p>{searchGame.length > 0 &&
-                                    sugestedSearchGames.length < 1 && `Buscando por ${searchGame}...`}</p>
                             </SearchContainer>
                             <GamesContainer>
                                 {
