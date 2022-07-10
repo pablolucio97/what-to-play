@@ -1,8 +1,8 @@
 const defaultTheme = {
     title: 'theme',
     colors: {
-        background: '#fff',
-        text: '#222',
+        background: '#222',
+        text: '#fff',
         primary1: '#2391ff',
         primary2: '#4e9ae6',
         secondary1: '#ff7723',

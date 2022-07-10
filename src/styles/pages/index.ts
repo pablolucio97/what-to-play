@@ -30,7 +30,7 @@ export const Main = styled.div`
 
 export const H1 = styled.h1`
   margin-left: 1rem;
-  color: ${(props) => props.theme.colors.gray1};
+  color: #fff;
 `;
 
 export const Banner = styled.div`
@@ -84,23 +84,14 @@ export const Banner = styled.div`
       background: none;
       width: 80%;
       height: 240px;
-      h1{
-      position: absolute;
-      bottom: 32%;
-      left: 18%;
-      width: 64%;
-      font-size: 1.64rem;
-      text-align: center;
-      color: #333;
-    };
     span{
       position: absolute;
       bottom: 16%;
       left: 14%;
       text-align: center;
-      font-size: .88rem;
+      font-size: 1rem;
       width: 72%;
-      color: ${props => props.theme.colors.gray};
+      color: ${props => props.theme.colors.text};
       a{
         color: ${props => props.theme.colors.primary1};
       }
@@ -120,6 +111,7 @@ export const ButtonsContainer = styled.button`
     font-size: 2.4rem;
     width: 880px;
     margin-bottom: 3.2rem;
+    color: ${props => props.theme.colors.text};
   }
   @media (max-width: 1080px) {
     h1 {

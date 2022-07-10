@@ -13,21 +13,15 @@ export const Input = styled.input`
   box-shadow: rgba(10, 10, 10, 0.1) 0px 8px 16px -2px,
     rgba(10, 10, 10, 0.02) 0px 0px 0px 1px;
   transition: all 0.3s ease-in-out;
-  @media (max-width: 1080px) {
-    margin-left: 2.24rem;
-  }
+  
 
   @media (max-width: 1080px) {
-    margin-left: 1rem;
+    width: 100%;
+    padding: .64rem;
   }
 
-  @media (max-width: 480px) {
-    margin-left: 0;
-  }
 
-  @media (max-width: 359px) {
-    margin-left: 0.8rem;
-  }
+
 
   &:focus {
     outline: 1px solid ${(props) => props.theme.colors.gray3};

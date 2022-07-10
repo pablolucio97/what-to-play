@@ -14,21 +14,16 @@ export const Container = styled.div`
   }
 
   @media (max-width: 720px) {
-    width: 240px;
+    width: 72%;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    margin: 8px auto;
   }
 `;
 
 export const Img = styled.img`
-  width: 365px;
-  height: 206px;
+  width: 100%;
 
-  @media (max-width: 720px) {
-    width: 100%;
-    height: 154px;
-  }
 `;
 
 export const ButtonsContainer = styled.div`

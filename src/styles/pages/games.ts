@@ -14,7 +14,9 @@ export const Container = styled.div`
     min-height: 72vh;
     @media (max-width: 1080px) {
       width: 100%;
+      align-items: center;
     }
+
   }
 
   span {
