@@ -42,12 +42,12 @@ export const GlobalStyles = createGlobalStyle`
         width: 320px;
         height: 160px;
         padding: 1rem;
-        background: #fff;
+        background: ${(props) => props.theme.colors.background};
         margin: 25% auto;
 
         strong{
             font-size: 1.24rem;
-            color: ${(props) => props.theme.colors.gray3}
+            color: ${(props) => props.theme.colors.text};
         }
   }
 

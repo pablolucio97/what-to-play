@@ -27,7 +27,7 @@ export default async (
         } = req.body;
         const hasFavorite = await dbConnect
           .collection("users")
-          .findOne({ favorites: { id } });
+          .findOne({ favorites: { title } });
         res.json({ error: "Game already exists in your lib." });
         if (!hasFavorite) {
           const response = await dbConnect.collection("users").updateOne(
