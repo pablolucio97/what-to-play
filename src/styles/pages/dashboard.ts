@@ -18,7 +18,7 @@ export const Container = styled.div`
   h2 {
     margin: 6rem 2rem 0;
     font-weight: 500;
-    color: ${(props) => props.theme.colors.gray};
+    color: #fff;
     font-size: 1.24rem;
   }
 
